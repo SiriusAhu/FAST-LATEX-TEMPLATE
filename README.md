@@ -1,4 +1,7 @@
-# FAST: 一款快速上手的 LaTeX 模板（适用于学校CW）
+<div align="center">
+  <img src="./assets/images/logo.png" alt="FAST Logo" width="160" />
+  <h1>FAST: 一款快速上手的 LaTeX 模板（适用于学校CW）</h1>
+</div>
 
 <div align="center">
 
@@ -25,7 +28,7 @@
 
 </div>
 
-## 写在前面：关于这个项目
+# 写在前面：关于这个项目
 
 > 我在大二的时候接触了 LaTeX，并惊讶于其的优雅与强大。
 > 由于学校的课程作业（Coursework，简称CW）大多要求提交PDF格式的报告，而Word等传统工具在排版数学公式、插入代码等方面显得力不从心，于是我决定写一个 LaTeX 模板来帮助自己和同学们更方便地使用 LaTeX 来制作一份美观的报告。
@@ -38,13 +41,13 @@
 > 
 > 希望它能帮到你，也希望你能喜欢它！:wink:
 
-## 简介
+# 简介
 
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 是一个致力于方便学生使用`LaTeX`进行作业报告写作的模板，支持本地与在线平台（如`Overleaf`），支持中英文，易于上手，开箱即用。
 
 [点击这里跳转到使用方法](#使用方法)。
 
-### 主要特性
+## 主要特性
 
 - [x] 支持数学公式、表格绘制、代码高亮、参考文献等常见核心需求
 - [x] 模块化设计，便于定制和扩展
@@ -53,7 +56,7 @@
 
 <!-- TODO:贴上效果图 -->
 
-### **FAST**的哲学
+## **FAST**的哲学
 
 本项目本着：
 
@@ -67,7 +70,7 @@
     > 数学公式？三线表？代码高亮？参考文献？你需要的，它都有！
 
 
-### 核心工具
+## 核心工具
 
 - `PDFLaTeX`：`LaTeX`的主流引擎之一，速度快，兼容性好。
 - `biblatex` + `biber`：强大的参考文献处理工具，支持多种引用格式。
@@ -76,7 +79,7 @@
 - `cleveref`：智能交叉引用工具，自动识别图、表、公式等。
 - `booktabs`, `amsmath`, `graphicx`等：一系列`PDFLaTeX`默认生态下的经典优秀宏包。
 
-### 项目目录结构
+## 项目目录结构
 
 ```
 fast-cw-latex-template/
@@ -89,7 +92,7 @@ fast-cw-latex-template/
 │   │   ├── example.py
 │   │   └── example.cpp
 │   ├── images/
-│   │   └── example.png
+│   │   └── logo.png
 │   └── coverpage.pdf       # 作业封面（一些课程作业会提供）
 │
 ├── bib/
@@ -125,9 +128,9 @@ fast-cw-latex-template/
 └── README.md               # 说明文档（中文）
 ```
 
-## 使用方法
+# 使用方法
 
-### 0-1. 环境检查
+## 0-1. 环境检查
 <!-- TODO:使用虚拟机测试Windows和Linux下的完整安装流程 -->
 
 先验证一下`Tex Live`和核心工具是否已经安装在设备上。
@@ -145,7 +148,7 @@ biber --version  # 验证Biber成功安装
 <!-- TODO: 测试、适配 Overleaf -->
 <!-- > 不过别担心，该项目也支持在 `Overleaf` （一个热门的在线 `LaTeX` 编辑器）上使用。 -->
 
-### 0-2. VSCode相关配置
+## 0-2. VSCode相关配置
 
 该项目自带了一个`.vscode/settings.json`配置文件。如果你使用`VSCode`作为编辑器，它会直接覆盖默认的用户配置生效。（这样你就不用浪费时间在各种额外配置上了！😎）
 
@@ -153,7 +156,7 @@ biber --version  # 验证Biber成功安装
 > 
 > A: 如果你有自己的一套配置，不想用仓库中的配置，那么你可以选择删除`.vscode`文件夹，或者将其重命名为其他名字（如`.vscode_backup`）。这样它就不会覆盖默认的用户配置了。
 
-### 1. 克隆或下载该项目
+## 1. 克隆或下载该项目
 
 ```bash
 git clone https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE.git
@@ -162,7 +165,7 @@ cd FAST-LATEX-TEMPLATE
 
 或者直接下载ZIP包并解压。
 
-### 2. 编辑`meta.tex`和`options.tex`
+## 2. 编辑`meta.tex`和`options.tex`
 
 按照需求修改即可。
 - `meta.tex`：填写作业的元信息，包括但不限于：
@@ -176,11 +179,11 @@ cd FAST-LATEX-TEMPLATE
 - `options.tex`：根据个人喜好调整以下设置：
     - 主题色、代码风格等选项。
 
-### 3. 尝试编译
+## 3. 尝试编译
 
 试试看编译是否能成功：渲染是否报错？输出的PDF文件上的元信息是否与`meta.tex`中填写的一致？
 
-#### 3-1. 使用命令行编译
+### 3-1. 使用命令行编译
 
 编译链条：`PDFLaTeX -> Biber -> PDFLaTeX -> PDFLaTeX`。
 
@@ -191,13 +194,13 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
-#### 3-2. 使用VSCode编译
+### 3-2. 使用VSCode编译
 
 安装`LaTeX Workshop`扩展，然后使用`VSCode`打开项目文件夹，点击左侧扩展栏中的`TeX`图标，选择`Build LaTeX project`下的`Full Build`进行编译。
 
 ![VSCode Build](./assets/readme/latex_workshop.jpg)
 
-### 4. 一切就绪，开始写作吧！
+## 4. 一切就绪，开始写作吧！
 
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 使用了模块化设计，正文章节内容都放在了`content/`文件夹中，而它们统一被`main.tex`文件调用。
 
@@ -209,11 +212,11 @@ pdflatex main.tex
 
 `content`下的文件并非固定的，你可以根据需要添加、删除、重命名这些文件并在`main.tex`中进行相应的调用即可。
 
-### 5. 自定义命令
+## 5. 自定义命令
 
 TODO: 制作专门的自定义命令的文档，以及跳转链接
 
-## Q&A
+# Q&A
 - 为什么使用`PDFLaTeX`而不是`XeLaTeX`，亦或是标榜为“未来发展方向”的`LuaLaTeX`？
     1. 对**速度**的追求：学生在写作业的时候需要频繁地编译，几种主流引擎中，`PDFLaTeX`的速度是最快的。
     1. 对**兼容性**的追求：`PDFLaTeX`是一个已经很成熟的引擎，无论是本地还是在线工具（如`Overleaf`）都对其有着很完善的支持。
@@ -226,7 +229,7 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
     1. **安装和使用更简单**：`minted` 依赖 Python 和 Pygments，安装和配置需要额外的操作，不符合该项目“易用”的初衷。而 `listings` 可以做到开箱即用。
     2. **编译速度更快**：`minted` 需要在编译时调用外部程序，导致编译速度变慢。而 `listings` 是纯 LaTeX 宏包，编译速度更快。
 
-## 已知issue
+# 已知issue
 1. “配置文件中明明使用的是`.vscode/settings.json`下的recipe，同时设置了在保存时自动编译。但我发现每次保存时系统却会使用其他的recipe进行编译。这是怎么回事？”
     - 诊断：有可能你已经在默认的配置文件下进行过有关`"latex-workshop.latex.recipe.default"`的设置。
     - 解决方案：将配置文件中的`"latex-workshop.latex.recipe.default"`改为`"lastUsed"`（不影响在其他项目中的使用），或者直接注释掉（可能影响在其他项目中的使用）。
@@ -234,7 +237,7 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
     - 诊断：有可能是你使用的是项目给出的默认recipe，“Quick Build”，其不包含`biber`的调用。
     - 解决方案：手动点击选择扩展栏中的`Full Build`这一recipe进行编译就好啦。
 
-## TODO
+# TODO
 - [x] 将`LaTeX`模板模块化
 - [ ] 完成英文`README.md`
 - [ ] 创建`docs`文件夹，放置文档和示例
