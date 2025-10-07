@@ -1,0 +1,26 @@
+\section{Graphs}
+
+The template bundles \texttt{TikZ} and \texttt{PGFPlots} for high-quality vector graphics generated directly from data.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        width=0.7\textwidth,
+        height=6cm,
+        grid=both,
+        xlabel={Iterations},
+        ylabel={Score},
+        xmin=0, xmax=10,
+        ymin=0, ymax=100,
+        legend style={at={(0.5,-0.2)},anchor=north}
+      ]
+      \addplot+[mark=*,color=fastprimary] coordinates {
+        (0,10) (2,28) (4,55) (6,72) (8,88) (10,95)
+      };
+      \addlegendentry{Performance}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{PGFPlots example graph generated without external assets.}
+  \label{fig:pgfplots-example}
+\end{figure}

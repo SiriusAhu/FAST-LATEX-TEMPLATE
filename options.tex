@@ -1,0 +1,36 @@
+% -------------------------------------------------------------------
+% FAST Coursework Template - User-Facing Options
+% -------------------------------------------------------------------
+% Adjust the switches below to customise the template. These values are
+% intentionally isolated from the config/ directory so you can keep the
+% core defaults untouched. English and Simplified Chinese support is
+% enabled automatically through ctex - no extra toggle required here.
+%
+% Core style selectors
+% \TemplateColorTheme accepts any colour key defined in config/style.tex.
+%   The default stylesheet uses only fastprimary, but you can redefine
+%   the macro for downstream overrides.
+% \TemplateCodeListingStyle points to any \lstdefinestyle declared under
+%   config/style.tex (githubLight, githubPython, githubJavaScript,
+%   githubC, githubCpp). Supply a custom style name if you extend the
+%   listings configuration.
+\providecommand{\TemplateColorTheme}{fastprimary}
+\providecommand{\TemplateCodeListingStyle}{githubLight}
+
+% Pass language and bibliography preferences to downstream packages.
+\PassOptionsToPackage{backend=biber,sorting=nyt}{biblatex}
+
+% Theme toggles (true = enable, false = disable).
+\newif\ifTemplateMonochromeTheme
+\TemplateMonochromeThemefalse
+
+% Header/footer rules (true = show rule, false = remove rule).
+\newif\ifTemplateHeadRule
+\TemplateHeadRuletrue
+\newif\ifTemplateFootRule
+\TemplateFootRuletrue
+
+% Layout modes. true mimics a word-processor layout (no indent + relaxed
+% spacing). false retains classic LaTeX paragraph spacing.
+\newif\ifTemplateWordLikeLayout
+\TemplateWordLikeLayoutfalse

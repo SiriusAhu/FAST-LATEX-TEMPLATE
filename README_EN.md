@@ -1,0 +1,1 @@
+# FAST: A Fast and Easy-to-Use LaTeX Template for School CW

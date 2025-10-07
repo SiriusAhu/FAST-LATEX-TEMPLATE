@@ -1,0 +1,73 @@
+% -------------------------------------------------------------------
+% FAST Coursework Template - Core package imports
+% -------------------------------------------------------------------
+% This file centralises package loading so higher-level options can stay inside options.tex. Only adjust these settings when you need to add or remove functionality for the whole project.
+
+% Engine detection helpers
+\usepackage{ifxetex}
+\usepackage{ifluatex}
+
+% Encoding, fonts, and language handling
+\ifxetex
+  \usepackage[scheme=plain]{ctex}
+\else
+  \ifluatex
+    \usepackage[scheme=plain]{ctex}
+  \else
+    \usepackage[UTF8,scheme=plain]{ctex}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+\fi
+
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+% Page geometry and spacing
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{setspace}
+\onehalfspacing
+\ifTemplateWordLikeLayout
+  \usepackage{parskip} % Relaxed spacing when mimicking word-processor layout.
+\fi
+\usepackage{indentfirst} % Ensure first paragraph after headings respects indentation.
+
+% Mathematics and tables
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+
+% Graphics and floats
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+
+% Code and algorithm support
+\usepackage{listings}
+\usepackage{siunitx}
+\usepackage{algorithm2e}
+
+% Drawing and plots
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Hyperlinks and clever referencing
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Header/footer and title formatting
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Bibliography
+\usepackage{biblatex}
+\addbibresource{bib/references.bib}

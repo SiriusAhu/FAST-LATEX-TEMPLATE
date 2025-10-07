@@ -1,0 +1,73 @@
+% -------------------------------------------------------------------
+% FAST Coursework Template - Helper macros
+% -------------------------------------------------------------------
+% This file houses reusable commands so that content/ files stay clean.
+
+% Global toggles and metadata placeholders. These are surfaced to users through meta.tex and options.tex.
+\newif\ifTemplateIncludeCoverPDF
+\TemplateIncludeCoverPDFfalse
+\newif\ifTemplateIncludeCoverImage
+\TemplateIncludeCoverImagefalse
+
+\providecommand{\TemplateCoverPDFPath}{}
+\providecommand{\TemplateCoverImagePath}{}
+\providecommand{\TemplateCoverImageWidth}{0.7\textwidth}
+
+\providecommand{\TemplateModuleCode}{}
+\providecommand{\TemplateModuleName}{}
+\providecommand{\TemplateAuthorName}{}
+\providecommand{\TemplateAuthorID}{}
+\providecommand{\TemplateAbstract}{}
+
+% Inline TODO marker for drafting
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:}~#1}}
+
+% Figure helpers routed through settings.sty equivalents. Arguments are:
+% \picHere{path}{width}{caption}{label}
+% \picHereSimple{path}{width}
+\newcommand{\picHere}[4]{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=#2]{#1}%
+    \caption{#3}%
+    \label{#4}%
+  \end{figure}%
+}
+
+\newcommand{\picHereSimple}[2]{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=#2]{#1}%
+  \end{figure}%
+}
+
+% Cover rendering hooks controlled by meta.tex toggles.
+\newcommand{\TemplateRenderCoverPDF}{%
+  \ifTemplateIncludeCoverPDF
+    \includepdf[pages=-]{\TemplateCoverPDFPath}%
+  \fi
+}
+
+\newcommand{\TemplateRenderCoverImage}{%
+  \ifTemplateIncludeCoverImage
+    \picHereSimple{\TemplateCoverImagePath}{\TemplateCoverImageWidth}%
+    \clearpage
+  \fi
+}
+
+% Coursework metadata shortcuts
+\newcommand{\coursecode}[1]{\textsc{#1}}
+\newcommand{\lecturer}[1]{\textit{#1}}
+\newcommand{\term}[1]{\textbf{#1}}
+
+% Highlight block for key takeaways
+\newenvironment{keypoint}{
+  \begin{quote}\color{fastprimary}\itshape
+}{
+  \end{quote}
+}
+
+% Convenience macro tweaks for cleveref once it is initialised
+\AtBeginDocument{%
+  \renewcommand{\creflastconjunction}{, and~}%
+}

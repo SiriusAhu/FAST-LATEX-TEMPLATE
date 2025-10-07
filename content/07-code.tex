@@ -1,0 +1,17 @@
+\section{Code Listings}
+
+Source code is rendered using the \texttt{listings} package with the default style defined in \texttt{config/style.tex}. Adjust \texttt{\textbackslash TemplateCodeListingStyle} in \texttt{options.tex} to point to a different style.
+
+\Cref{lst:js-running-total} demonstrates an inline listing embedded directly in the document for short examples. The more extensive Python and C++ modules now live in Appendix~\ref{app:code-samples}, keeping the main narrative focused while still providing full source listings for reference.
+
+\begin{lstlisting}[style=githubJavaScript, caption={Running total helper implemented in modern JavaScript.}, label={lst:js-running-total}]
+export function runningTotal(values) {
+  let total = 0;
+  return values.map((value) => {
+    total += value;
+    return total;
+  });
+}
+
+console.log(runningTotal([4, 8, 15, 16, 23, 42]));
+\end{lstlisting}

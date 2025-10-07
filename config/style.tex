@@ -1,0 +1,194 @@
+% -------------------------------------------------------------------
+% FAST Coursework Template - Visual identity and layout
+% -------------------------------------------------------------------
+% Central styling hooks live here so that options.tex can toggle high level behaviour without redefining package setup.
+
+% Brand colours (switchable via \TemplateMonochromeTheme in options.tex).
+\definecolor{ghbackground}{HTML}{FFFFFF}
+\ifTemplateMonochromeTheme
+  \definecolor{fastprimary}{HTML}{000000}
+  \definecolor{fastlight}{HTML}{F5F7FA}
+  \definecolor{fastaccent}{HTML}{4D4D4D}
+  \definecolor{ghtext}{HTML}{000000}
+  \definecolor{ghkeyword}{HTML}{000000}
+  \definecolor{ghstring}{HTML}{000000}
+  \definecolor{ghcomment}{HTML}{4D4D4D}
+  \definecolor{ghnumber}{HTML}{000000}
+  \definecolor{ghbuiltin}{HTML}{000000}
+  \definecolor{ghpreproc}{HTML}{000000}
+\else
+  \definecolor{fastprimary}{HTML}{1B4B8C}
+  \definecolor{fastlight}{HTML}{F5F7FA}
+  \definecolor{fastaccent}{HTML}{FFB703}
+  \definecolor{ghtext}{HTML}{24292E}
+  \definecolor{ghkeyword}{HTML}{D73A49}
+  \definecolor{ghstring}{HTML}{032F62}
+  \definecolor{ghcomment}{HTML}{6A737D}
+  \definecolor{ghnumber}{HTML}{005CC5}
+  \definecolor{ghbuiltin}{HTML}{6F42C1}
+  \definecolor{ghpreproc}{HTML}{22863A}
+\fi
+
+\colorlet{ghidentifier}{ghtext}
+
+% Hyperlink styling
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = fastprimary,
+  urlcolor   = fastprimary,
+  citecolor  = fastprimary
+}
+
+% Section heading formatting
+\titleformat{\section}{\Large\bfseries\color{fastprimary}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{fastprimary}}{\thesubsection}{0.75em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{fastprimary}}{\thesubsubsection}{0.75em}{}
+
+\titlespacing*{\section}{0pt}{1.5em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.4em}
+
+% Header and footer
+\makeatletter
+\renewcommand{\sectionmark}[1]{%
+  \markboth{}{#1}% Capture the first section title on the page.
+}
+\makeatother
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\rightmark}}
+\fancyhead[R]{\TemplateModuleCode}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\TemplateAuthorName~(\TemplateAuthorID)}
+\setlength{\headheight}{15pt}
+\ifTemplateHeadRule
+  \renewcommand{\headrulewidth}{0.4pt}
+\else
+  \renewcommand{\headrulewidth}{0pt}
+\fi
+\ifTemplateFootRule
+  \renewcommand{\footrulewidth}{0.4pt}
+\else
+  \renewcommand{\footrulewidth}{0pt}
+\fi
+
+% List spacing
+\setlist[itemize]{label=\textbullet,leftmargin=1.2em,itemsep=0.4em}
+\setlist[enumerate]{leftmargin=1.4em,itemsep=0.4em}
+
+% Paragraph layout driven solely by \TemplateWordLikeLayout.
+\ifTemplateWordLikeLayout
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{0.75em}
+\else
+  \setlength{\parindent}{2em}
+  \setlength{\parskip}{0pt plus 1pt}
+\fi
+
+% Custom language tweaks and listing styles below feed the
+% \TemplateCodeListingStyle selector. Choose any of the defined styles
+% (githubLight, githubPython, githubJavaScript, githubC, githubCpp) or
+% add your own style before the final \lstset call.
+\lstdefinelanguage{JavaScript}{
+  keywords={
+    break,case,catch,class,const,continue,debugger,default,delete,do,else,
+    export,extends,finally,for,function,if,import,in,instanceof,new,return,
+    super,switch,this,throw,try,typeof,var,void,while,with,yield,let,await
+  },
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[s]{`}{`},
+  alsoletter={-}
+}
+
+% Code listings styled after GitHub Light
+\lstdefinestyle{githubLight}{
+  backgroundcolor=\color{ghbackground},
+  basicstyle=\ttfamily\small\color{ghtext},
+  keywordstyle=\color{ghkeyword}\bfseries,
+  keywordstyle=[2]\color{ghnumber}\bfseries,
+  keywordstyle=[3]\color{ghpreproc}\bfseries,
+  keywordstyle=[4]\color{ghbuiltin},
+  commentstyle=\itshape\color{ghcomment},
+  stringstyle=\color{ghstring},
+  numberstyle=\scriptsize\color{ghcomment},
+  identifierstyle=\color{ghidentifier},
+  numbers=left,
+  numbersep=8pt,
+  tabsize=2,
+  breaklines=true,
+  showstringspaces=false,
+  frame=single,
+  framerule=0.4pt,
+  rulesep=4pt,
+  rulesepcolor=\color{fastlight},
+  rulecolor=\color{ghcomment},
+  columns=fullflexible,
+  keepspaces=true,
+  literate=
+    {0}{{{\color{ghnumber}0}}}{1}%
+    {1}{{{\color{ghnumber}1}}}{1}%
+    {2}{{{\color{ghnumber}2}}}{1}%
+    {3}{{{\color{ghnumber}3}}}{1}%
+    {4}{{{\color{ghnumber}4}}}{1}%
+    {5}{{{\color{ghnumber}5}}}{1}%
+    {6}{{{\color{ghnumber}6}}}{1}%
+    {7}{{{\color{ghnumber}7}}}{1}%
+    {8}{{{\color{ghnumber}8}}}{1}%
+    {9}{{{\color{ghnumber}9}}}{1}%
+    {true}{{{\color{ghnumber}{true}}}}{4}%
+    {false}{{{\color{ghnumber}{false}}}}{5}%
+    {null}{{{\color{ghnumber}{null}}}}{4}%
+    {NULL}{{{\color{ghnumber}{NULL}}}}{4}%
+    {None}{{{\color{ghnumber}{None}}}}{4}%
+}
+
+\lstdefinestyle{githubPython}{
+  style=githubLight,
+  language=Python,
+  morekeywords={async,await,match,case},
+  morekeywords=[2]{bool,int,float,list,dict,set,tuple,str},
+  morekeywords=[4]{print,describe,range,sum,median},
+  emph={self},
+  emphstyle=\color{ghbuiltin},
+  morecomment=[s][\color{ghcomment}]{"""}{"""}
+}
+
+\lstdefinestyle{githubJavaScript}{
+  style=githubLight,
+  language=JavaScript,
+  morekeywords={async,await,yield,const,let,import,export},
+  morekeywords=[2]{Promise,Map,Set,Array,Number,String,Boolean},
+  morekeywords=[4]{console,log,reduce,filter,map},
+  emph={Promise,Map,Set},
+  emphstyle=\color{ghbuiltin}
+}
+
+\lstdefinestyle{githubC}{
+  style=githubLight,
+  language=C,
+  morekeywords={inline,_Bool},
+  morekeywords=[2]{size_t,uint32_t,uint64_t,int8_t,int16_t,int32_t,int64_t},
+  morekeywords=[3]{\#include,\#define,\#ifdef,\#endif},
+  morekeywords=[4]{printf,scanf,main},
+  emph={size_t,uint32_t,uint64_t},
+  emphstyle=\color{ghbuiltin}
+}
+
+\lstdefinestyle{githubCpp}{
+  style=githubLight,
+  language=C++,
+  morekeywords={concept,requires,co_await,co_return,co_yield,typename},
+  morekeywords=[2]{std,string,vector,bool,int,double,float,size_t},
+  morekeywords=[3]{\#include,\#define,\#pragma},
+  morekeywords=[4]{printf,main,mean,cout,cin},
+  emph={std,auto,constexpr,nullptr},
+  emphstyle=\color{ghbuiltin}
+}
+
+\begingroup
+  \edef\temp{\endgroup\noexpand\lstset{style=\TemplateCodeListingStyle}}
+\temp

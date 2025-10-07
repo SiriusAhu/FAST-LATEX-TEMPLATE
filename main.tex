@@ -1,0 +1,52 @@
+\documentclass[12pt,a4paper]{article}
+
+% === Template Options ===
+% 调整全局主题、代码样式、黑白模式、Word 风段落等快速开关。
+\input{options}
+
+% === Core Configuration ===
+% 统一加载宏包、视觉样式以及自定义命令。
+\input{config/preamble}
+\input{config/style}
+\input{config/commands}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+% === Front Matter ===
+% meta.tex 汇总课程信息、封面、摘要等可选模块。
+\input{meta}
+\TemplateRenderCoverPDF
+\maketitle
+\TemplateRenderCoverImage
+\TemplateAbstract
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+
+% === Main Content ===
+% 正文按章节拆分在 content/ 目录，可按需增删或重排。
+\input{content/01-introduction}
+\input{content/02-bilingual}
+\input{content/03-math}
+\input{content/04-figures}
+\newpage
+\input{content/05-tables}
+\input{content/06-graphs}
+\input{content/07-code}
+\input{content/08-references}
+
+% === References & Appendix ===
+\newpage
+\printbibliography
+
+\clearpage
+\appendix
+\pagenumbering{Roman}
+\input{content/appendix}
+
+\end{document}
