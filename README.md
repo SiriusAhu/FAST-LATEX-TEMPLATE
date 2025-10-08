@@ -191,6 +191,9 @@ cd FAST-LATEX-TEMPLATE
 - `options.tex`：根据个人喜好调整以下设置：
     - 主题色、代码风格等选项
     - **中文支持**：如需使用中文，将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`
+    - **参考文献样式**：新增 `\TemplateBibStyle` 选项用于选择引用样式。例如：
+        - `ieee`（默认）
+        - `apa7`（对应 biblatex 的 `apa` 样式）
 
 ### 3. 尝试编译
 
