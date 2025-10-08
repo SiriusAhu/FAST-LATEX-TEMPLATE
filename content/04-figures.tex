@@ -5,8 +5,6 @@ Use the \texttt{graphicx} package to insert figures (images). Store assets under
 
 2 customized commands are provided for convenience. 
 
-\picHere{assets/images/github-icon.png}{0.7\textwidth}{Example figure included from external asset.}{fig:example-figure}
-
 First, \texttt{\textbackslash picHere} wraps a full \texttt{figure} environment with caption and label support. (Figure \ref{fig:example-figure} is an example.)
 
 The basic usage pattern is:
@@ -21,14 +19,14 @@ Here is an example of how to use it:
 \picHere{assets/images/github-icon.png}{0.7\textwidth}{Example figure included from external asset.}{fig:example-figure}
 \end{lstlisting}
 
-\picHereSimple{assets/images/github-icon.png}{0.7\textwidth}
+\picHere{assets/images/github-icon.png}{0.7\textwidth}{Example figure included from external asset.}{fig:example-figure}
 
 While \texttt{\textbackslash picHereSimple} is a minimal drop-in for decorative images that do not require referencing. (No caption or label, just the image.)
 
 The usage pattern is:
 
 \begin{itemize}
-    \item \texttt{\textbackslash picHereSimple\{path\}\{width\}} gives you the same layout without caption or label when the image is purely decorative.
+  \item \texttt{\textbackslash picHereSimple\{path\}\{width\}} gives you the same layout without caption or label when the image is purely decorative.
 \end{itemize}
 
 Here is an example of how to use it:
@@ -36,3 +34,5 @@ Here is an example of how to use it:
 \begin{lstlisting}[style=githubLight, language={[LaTeX]TeX}, caption={Using the figure helpers in a listing block.}, label={lst:figure-helper-macros}]
     \picHereSimple{assets/images/github-icon.png}{0.7\textwidth}
 \end{lstlisting}
+
+\picHereSimple{assets/images/github-icon.png}{0.7\textwidth}
