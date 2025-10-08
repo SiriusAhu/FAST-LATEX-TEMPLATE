@@ -130,7 +130,11 @@ fast-cw-latex-template/
 
 # 使用方法
 
-## 0-1. 环境检查
+本项目支持本地编译（推荐使用`VSCode`）和在线平台（如`Overleaf`）编译两种方式。
+
+## A. 本地使用 with VSCode
+
+### A.0.1. 环境检查
 <!-- TODO:使用虚拟机测试Windows和Linux下的完整安装流程 -->
 
 先验证一下`Tex Live`和核心工具是否已经安装在设备上。
@@ -148,7 +152,7 @@ biber --version  # 验证Biber成功安装
 <!-- TODO: 测试、适配 Overleaf -->
 <!-- > 不过别担心，该项目也支持在 `Overleaf` （一个热门的在线 `LaTeX` 编辑器）上使用。 -->
 
-## 0-2. VSCode相关配置
+### A.0.2. VSCode相关配置
 
 该项目自带了一个`.vscode/settings.json`配置文件。如果你使用`VSCode`作为编辑器，它会直接覆盖默认的用户配置生效。（这样你就不用浪费时间在各种额外配置上了！😎）
 
@@ -156,7 +160,7 @@ biber --version  # 验证Biber成功安装
 > 
 > A: 如果你有自己的一套配置，不想用仓库中的配置，那么你可以选择删除`.vscode`文件夹，或者将其重命名为其他名字（如`.vscode_backup`）。这样它就不会覆盖默认的用户配置了。
 
-## 1. 克隆或下载该项目
+### 1. 克隆或下载该项目
 
 ```bash
 git clone https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE.git
@@ -165,7 +169,7 @@ cd FAST-LATEX-TEMPLATE
 
 或者直接下载ZIP包并解压。
 
-## 2. 编辑`meta.tex`和`options.tex`
+### 2. 编辑`meta.tex`和`options.tex`
 
 按照需求修改即可。
 - `meta.tex`：填写作业的元信息，包括但不限于：
@@ -179,11 +183,11 @@ cd FAST-LATEX-TEMPLATE
 - `options.tex`：根据个人喜好调整以下设置：
     - 主题色、代码风格等选项。
 
-## 3. 尝试编译
+### 3. 尝试编译
 
 试试看编译是否能成功：渲染是否报错？输出的PDF文件上的元信息是否与`meta.tex`中填写的一致？
 
-### 3-1. 使用命令行编译
+#### 3.1. 使用命令行编译
 
 编译链条：`PDFLaTeX -> Biber -> PDFLaTeX -> PDFLaTeX`。
 
@@ -194,13 +198,24 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
-### 3-2. 使用VSCode编译
+#### 3.2. 使用VSCode编译
 
 安装`LaTeX Workshop`扩展，然后使用`VSCode`打开项目文件夹，点击左侧扩展栏中的`TeX`图标，选择`Build LaTeX project`下的`Full Build`进行编译。
 
 ![VSCode Build](./assets/readme/latex_workshop.jpg)
 
-## 4. 一切就绪，开始写作吧！
+## B. 在线使用 with Overleaf
+
+> **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 在初步完善后会上传到`Overleaf`的官方模板仓库（[Overleaf Gallery](https://www.overleaf.com/gallery)），届时你可以直接在`Overleaf`上使用它。
+> 🚧 目前仍在测试阶段。
+
+你可以将本项目作为压缩包下载，之后上传到`Overleaf`。（见以下两张图片）
+
+![Github Download](./assets/readme/github_download_guide.jpg)
+
+![Overleaf Upload](./assets/readme/overleaf_upload_guide.jpg)
+
+## 一切就绪，开始写作吧！
 
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 使用了模块化设计，正文章节内容都放在了`content/`文件夹中，而它们统一被`main.tex`文件调用。
 
@@ -212,7 +227,7 @@ pdflatex main.tex
 
 `content`下的文件并非固定的，你可以根据需要添加、删除、重命名这些文件并在`main.tex`中进行相应的调用即可。
 
-## 5. 自定义命令
+## 自定义命令
 
 TODO: 制作专门的自定义命令的文档，以及跳转链接
 
