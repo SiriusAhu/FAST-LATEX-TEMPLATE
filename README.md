@@ -54,6 +54,12 @@
 - [x] 配置需求简单，开箱即用
 - [x] 同时支持本地与在线平台（如`Overleaf`）
 
+## 支持的编译环境
+
+- ✅ 本地 TeX Live / MiKTeX 等发行版（使用 `pdfLaTeX`）
+- ✅ `Overleaf` 平台（在菜单中选择 `pdfLaTeX` 编译器）
+- ⚠️ 模板仅针对 `pdfLaTeX` 做了适配；如需 `XeLaTeX`、`LuaLaTeX` 等引擎，请自行扩展配置
+
 <!-- TODO:贴上效果图 -->
 
 ## **FAST**的哲学

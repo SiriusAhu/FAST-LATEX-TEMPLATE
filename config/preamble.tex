@@ -3,22 +3,20 @@
 % -------------------------------------------------------------------
 % This file centralises package loading so higher-level options can stay inside options.tex. Only adjust these settings when you need to add or remove functionality for the whole project.
 
-% Engine detection helpers
+% Engine guard: FAST targets pdfLaTeX workflows (local + Overleaf).
 \usepackage{ifxetex}
 \usepackage{ifluatex}
-
-% Encoding, fonts, and language handling
 \ifxetex
-  \usepackage[scheme=plain]{ctex}
-\else
-  \ifluatex
-    \usepackage[scheme=plain]{ctex}
-  \else
-    \usepackage[UTF8,scheme=plain]{ctex}
-    \usepackage[utf8]{inputenc}
-    \usepackage[T1]{fontenc}
-  \fi
+  \PackageError{fast-template}{FAST targets pdfLaTeX only}{Switch your compiler to pdfLaTeX (pdflatex) when building this project.}
 \fi
+\ifluatex
+  \PackageError{fast-template}{FAST targets pdfLaTeX only}{Switch your compiler to pdfLaTeX (pdflatex) when building this project.}
+\fi
+
+% Encoding, fonts, and language handling tuned for pdfLaTeX.
+\usepackage[UTF8,scheme=plain]{ctex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \usepackage[english]{babel}
 \usepackage{lmodern}
