@@ -22,7 +22,7 @@
     // VSCode 相关配置
     "latex-workshop.view.pdf.viewer": "tab", // 在 VSCode 自带的新标签页中打开 PDF
     "latex-workshop.message.log.show": false, // 不自动弹日志窗口
-    "latex-workshop.latex.recipe.default": "first", // 默认使用第一个 recipe（毕竟只有收尾工作需要渲染引用相关信息）
+    "latex-workshop.latex.recipe.default": "lastUsed", // 默认使用上次使用的 recipe
     "latex-workshop.synctex.afterBuild.enabled": true, // 启用 SyncTeX （用于源代码与 PDF 之间的跳转）
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click", // 双击 PDF 跳转到源代码对应的位置
 
@@ -30,17 +30,17 @@
     // 默认使用 Quick Build（快速编译，适合不需要引用的情况）
     "latex-workshop.latex.recipes": [
         {
-            "name": "Quick Build (pdflatex only)",
-            "tools": [
-                "pdflatex"
-            ]
-        },
-        {
             "name": "Full Build (pdflatex → biber → pdflatex ×2)",
             "tools": [
                 "pdflatex",
                 "biber",
                 "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Quick Build (pdflatex only)",
+            "tools": [
                 "pdflatex"
             ]
         }

@@ -226,6 +226,8 @@ pdflatex main.tex
 
 ## 一切就绪，开始写作吧！
 
+> 🎉 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 在`VSCode`环境下提供了两个recipe（构建流程），默认的是`Full Build`，速度稍慢但功能全面。如果在意速度可手动切换使用`Quick Build`，其没有引用的支持（图片、文献），但是速度非常快。
+
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 使用了模块化设计，正文章节内容都放在了`content/`文件夹中，而它们统一被`main.tex`文件调用。
 
 比如说，一个`content/01-introduction.tex`文件可以在`main.tex`中被如下代码调用：
@@ -235,6 +237,7 @@ pdflatex main.tex
 ```
 
 `content`下的文件并非固定的，你可以根据需要添加、删除、重命名这些文件并在`main.tex`中进行相应的调用即可。
+
 
 ## 自定义命令
 
