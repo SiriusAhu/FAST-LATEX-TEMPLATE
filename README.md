@@ -5,12 +5,10 @@
 
 <div align="center">
 
-<!-- PDFLaTeX, Biber, BibLaTeX, listings, TikZ, PGFPlots -->
+<!-- PDFLaTeX, Biber, BibLaTeX, listings -->
 ![Build with PDFLaTeX](https://img.shields.io/badge/build-PDFLaTeX-blue)
 ![Biber Supported](https://img.shields.io/badge/biblatex-biber-yellow)
 ![Listings Supported](https://img.shields.io/badge/code-listings-green)
-![TikZ Supported](https://img.shields.io/badge/graphics-TikZ-orange)
-![PGFPlots Supported](https://img.shields.io/badge/plots-PGFPlots-red)
 
 </div>
 
@@ -81,15 +79,19 @@
 - `PDFLaTeX`：`LaTeX`的主流引擎之一，速度快，兼容性好。
 - `biblatex` + `biber`：强大的参考文献处理工具，支持多种引用格式。
 - `listings`：一个经典、可靠、快速的代码高亮工具。
-- `TikZ` + `PGFPlots`：强大的绘图工具，适合绘制高质量的流程图、数据图表等。
+- `CJKutf8`：简单易用的中文支持宏包（可选，默认关闭）。
 - `cleveref`：智能交叉引用工具，自动识别图、表、公式等。
 - `booktabs`, `amsmath`, `graphicx`等：一系列`PDFLaTeX`默认生态下的经典优秀宏包。
+
+> **提示**：模板支持中文排版（通过 `CJKutf8` 宏包），但**默认关闭**以保持最快的编译速度。如需使用中文，请在 `options.tex` 中将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`。同时取消注释 `bib/references.bib` 中的中文参考文献示例。
+
+> **提示**：模板支持使用 `TikZ` + `PGFPlots` 等绘图工具，但这些包较为复杂且会显著延长编译时间。如需使用，请在 `config/preamble.tex` 中手动添加相关宏包。
 
 ## 项目目录结构
 
 ```
 fast-cw-latex-template/
-├── .cache/                 # 编译中间文件（会被 .gitignore 忽略）
+├── .cache/                 # 编译中间文件（如果是用的是 Overleaf 则无效）
 ├── .vscode/
 │   └── settings.json       # VSCode LaTeX Workshop 配置
 │
@@ -111,11 +113,9 @@ fast-cw-latex-template/
 │
 ├── content/
 │   ├── 01-introduction.tex
-│   ├── 02-bilingual.tex
 │   ├── 03-math.tex
 │   ├── 04-figures.tex
 │   ├── 05-tables.tex
-│   ├── 06-graphs.tex
 │   ├── 07-code.tex
 │   ├── 08-references.tex
 │   └── appendix.tex
@@ -187,7 +187,8 @@ cd FAST-LATEX-TEMPLATE
     - 封面页图片路径及其大小
     - 摘要
 - `options.tex`：根据个人喜好调整以下设置：
-    - 主题色、代码风格等选项。
+    - 主题色、代码风格等选项
+    - **中文支持**：如需使用中文，将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`
 
 ### 3. 尝试编译
 

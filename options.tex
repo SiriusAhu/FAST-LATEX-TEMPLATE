@@ -3,8 +3,7 @@
 % -------------------------------------------------------------------
 % Adjust the switches below to customise the template. These values are
 % intentionally isolated from the config/ directory so you can keep the
-% core defaults untouched. English and Simplified Chinese support is
-% enabled automatically through ctex - no extra toggle required here.
+% core defaults untouched.
 %
 % Core style selectors
 % \TemplateColorTheme accepts any colour key defined in config/style.tex.
@@ -23,6 +22,11 @@
 % Theme toggles (true = enable, false = disable).
 \newif\ifTemplateMonochromeTheme
 \TemplateMonochromeThemefalse
+
+% Chinese language support toggle (true = enable, false = disable).
+% Enabling Chinese support will increase compilation time.
+\newif\ifTemplateChineseSupport
+\TemplateChineseSupportfalse
 
 % Header/footer rules (true = show rule, false = remove rule).
 \newif\ifTemplateHeadRule

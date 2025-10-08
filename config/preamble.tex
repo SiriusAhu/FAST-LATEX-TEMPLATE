@@ -14,9 +14,11 @@
 \fi
 
 % Encoding, fonts, and language handling tuned for pdfLaTeX.
-\usepackage[UTF8,scheme=plain]{ctex}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\ifTemplateChineseSupport
+  \usepackage{CJKutf8}
+\fi
 
 \usepackage[english]{babel}
 \usepackage{lmodern}
@@ -49,12 +51,6 @@
 \usepackage{listings}
 \usepackage{siunitx}
 
-% Drawing and plots
-\usepackage{tikz}
-\usetikzlibrary{calc,positioning,arrows.meta}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-
 % Hyperlinks and clever referencing
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -68,3 +64,9 @@
 % Bibliography
 \usepackage{biblatex}
 \addbibresource{bib/references.bib}
+
+% Activate Chinese typesetting for the entire document when running pdfLaTeX.
+\ifTemplateChineseSupport
+  \AtBeginDocument{\begin{CJK*}{UTF8}{gbsn}}
+  \AtEndDocument{\end{CJK*}}
+\fi
