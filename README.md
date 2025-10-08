@@ -39,7 +39,7 @@
 > 
 > 希望它能帮到你，也希望你能喜欢它！😉
 >
-> Made with [Codex](https://openai.com/codex/)
+> Made with [Codex](https://openai.com/codex/) and [Github Copilot](https://github.com/features/copilot)
 
 # 简介
 
@@ -266,6 +266,6 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
 
 # TODO
 - [x] 将`LaTeX`模板模块化
-- [ ] 完成英文`README.md`
+- [x] 完成英文`README.md`
 - [ ] 创建`docs`文件夹，放置文档和示例
 - [ ] 给出一些伪作业的examples，以便展示潜力（欢迎使用该模板并提交PR到examples中！）
