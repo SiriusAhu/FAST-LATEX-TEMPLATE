@@ -38,6 +38,8 @@
 > 于是，本着**FAST**，**Accessible**，**Stylish**，**Toolkit**的理念，我重新设计了 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)**，这一全新模板！
 > 
 > 希望它能帮到你，也希望你能喜欢它！:wink:
+>
+> Made with [Codex](https://openai.com/codex/)
 
 # 简介
 
@@ -83,9 +85,9 @@
 - `cleveref`：智能交叉引用工具，自动识别图、表、公式等。
 - `booktabs`, `amsmath`, `graphicx`等：一系列`PDFLaTeX`默认生态下的经典优秀宏包。
 
-> **提示**：模板支持中文排版（通过 `CJKutf8` 宏包），但**默认关闭**以保持最快的编译速度。如需使用中文，请在 `options.tex` 中将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`。同时取消注释 `bib/references.bib` 中的中文参考文献示例。
+> ⚠️ **提示**：模板支持中文排版（通过 `CJKutf8` 宏包），但**默认关闭**以保持最快的编译速度。如需使用中文，请在 `options.tex` 中将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`。同时取消注释 `bib/references.bib` 中的中文参考文献示例。
 
-> **提示**：模板支持使用 `TikZ` + `PGFPlots` 等绘图工具，但这些包较为复杂且会显著延长编译时间。如需使用，请在 `config/preamble.tex` 中手动添加相关宏包。
+> ⚠️ **提示**：模板支持使用 `TikZ` + `PGFPlots` 等绘图工具，但这些包较为复杂且会显著延长编译时间。如需使用，请在 `config/preamble.tex` 中手动添加相关宏包。
 
 ## 项目目录结构
 
