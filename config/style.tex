@@ -31,18 +31,28 @@
 
 \colorlet{ghidentifier}{ghtext}
 
+% Resolve the active primary colour from the \TemplateColorTheme option.
+\colorlet{TemplatePrimaryColor}{fastprimary}
+\makeatletter
+\@ifundefined{color@\TemplateColorTheme}{%
+  \PackageWarningNoLine{fast-template}{TemplateColorTheme '\TemplateColorTheme' not defined; falling back to fastprimary}%
+}{%
+  \colorlet{TemplatePrimaryColor}{\TemplateColorTheme}%
+}
+\makeatother
+
 % Hyperlink styling
 \hypersetup{
   colorlinks = true,
-  linkcolor  = fastprimary,
-  urlcolor   = fastprimary,
-  citecolor  = fastprimary
+  linkcolor  = TemplatePrimaryColor,
+  urlcolor   = TemplatePrimaryColor,
+  citecolor  = TemplatePrimaryColor
 }
 
 % Section heading formatting
-\titleformat{\section}{\Large\bfseries\color{fastprimary}}{\thesection}{0.75em}{}
-\titleformat{\subsection}{\large\bfseries\color{fastprimary}}{\thesubsection}{0.75em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\color{fastprimary}}{\thesubsubsection}{0.75em}{}
+\titleformat{\section}{\Large\bfseries\color{TemplatePrimaryColor}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{TemplatePrimaryColor}}{\thesubsection}{0.75em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{TemplatePrimaryColor}}{\thesubsubsection}{0.75em}{}
 
 \titlespacing*{\section}{0pt}{1.5em}{0.8em}
 \titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
