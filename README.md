@@ -37,7 +37,7 @@
 > 
 > 于是，本着**FAST**，**Accessible**，**Stylish**，**Toolkit**的理念，我重新设计了 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)**，这一全新模板！
 > 
-> 希望它能帮到你，也希望你能喜欢它！:wink:
+> 希望它能帮到你，也希望你能喜欢它！😉
 >
 > Made with [Codex](https://openai.com/codex/)
 
