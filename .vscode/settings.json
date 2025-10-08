@@ -25,10 +25,6 @@
     "latex-workshop.latex.recipe.default": "first", // 默认使用第一个 recipe（毕竟只有收尾工作需要渲染引用相关信息）
     "latex-workshop.synctex.afterBuild.enabled": true, // 启用 SyncTeX （用于源代码与 PDF 之间的跳转）
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click", // 双击 PDF 跳转到源代码对应的位置
-    
-    // 输出目录配置：将中间文件输出到 .cache 目录
-    "latex-workshop.latex.outDir": ".cache",
-    "latex-workshop.latex.auxDir": ".cache",
 
     // 构建流程定义
     // 默认使用 Quick Build（快速编译，适合不需要引用的情况）
@@ -58,7 +54,6 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-shell-escape",
-                "-output-directory=.cache",
                 "%DOC%"
             ],
         },
@@ -66,8 +61,6 @@
             "name": "biber",
             "command": "biber",
             "args": [
-                "--input-directory=.cache",
-                "--output-directory=.cache",
                 "%DOCFILE%"
             ],
         }

@@ -13,10 +13,6 @@
 *.synctex.gz
 *.toc
 
-# Auxiliary build cache
-.cache/*
-!.cache/.gitkeep
-
 # Legacy build outputs
 output/
 
@@ -32,7 +28,6 @@ Thumbs.db
 
 # Temporary folder
 tmp/
-.cache/
 
 # Docs（暂不发布）
 docs/

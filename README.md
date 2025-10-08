@@ -93,7 +93,7 @@
 
 ```
 fast-cw-latex-template/
-├── .cache/                 # 编译中间文件（如果是用的是 Overleaf 则无效）
+│
 ├── .vscode/
 │   └── settings.json       # VSCode LaTeX Workshop 配置
 │
