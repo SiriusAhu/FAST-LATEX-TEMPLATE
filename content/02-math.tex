@@ -1,6 +1,19 @@
 \section{Mathematics}
 
-Equation~\eqref{eq:newton} showcases how to typeset numbered equations alongside inline mathematics such as \( \nabla \cdot \vec{F} = 0 \).
+Look, {\LaTeX} supports math expressions by default!
+You can use inline math like \( e^{i\pi} + 1 = 0 \) or \( a^2 + b^2 = c^2 \) within \texttt{\textbackslash(...\textbackslash)} or \texttt{\$...\$}.
+
+Or display full equations on their own line by using \texttt{\textbackslash[...\textbackslash]} or classically, using \texttt{\$\$...\$\$} like these:
+
+\[
+  \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}
+\]
+
+$$
+  \int_{a}^{b} f(x) \, \mathrm{d}x = F(b) - F(a)
+$$
+
+If you want to number equations for referencing, use the \texttt{equation} environment:
 
 \begin{equation}
   \label{eq:newton}

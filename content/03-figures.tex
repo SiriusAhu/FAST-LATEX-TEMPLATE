@@ -1,38 +1,32 @@
 \newpage
 \section{Figures}
 
-Use the \texttt{graphicx} package to insert figures (images). Store assets under \texttt{assets/images/} to keep the project tidy.
+Figure insertion is another basic and essential feature of {\LaTeX}.However, the default syntax is quite verbose and not very user-friendly.
 
-2 customized commands are provided for convenience. 
+That's why \textbf{FAST} introduces some custom commands to simplify the process!
 
-First, \texttt{\textbackslash picHere} wraps a full \texttt{figure} environment with caption and label support. (Figure \ref{fig:example-figure} is an example.)
+\noindent 2 customized commands are provided for convenience. 
 
-The basic usage pattern is:
+\subsection{\texttt{\textbackslash picHere}: Full-featured figure insertion}
 
-\begin{itemize}
-  \item \texttt{\textbackslash picHere\{path\}\{width\}\{caption\}\{label\}} inserts a centred figure with a caption and a cleveref-compatible label.
-\end{itemize}
+\texttt{\textbackslash picHere} wraps a full \texttt{figure} environment with caption and label support (4 arguments are required). (Figure \ref{fig:example-figure} is an example.)
 
-Here is an example of how to use it:
+\noindent The following snippet and its output demonstrate how to use it:
 
-\begin{lstlisting}[style=githubLight, language={[LaTeX]TeX}, caption={Using the figure helpers in a listing block.}, label={lst:figure-helper-macros}]
-\picHere{assets/images/github-icon.png}{0.7\textwidth}{Example figure included from external asset.}{fig:example-figure}
+\begin{lstlisting}[style=githubLight, language={[LaTeX]TeX}, label={lst:figure-helper-macros}]
+\picHere{assets/images/github-icon.png}{0.8\textwidth}{Example figure included from external asset.}{fig:example-figure}
 \end{lstlisting}
 
-\picHere{assets/images/github-icon.png}{0.7\textwidth}{Example figure included from external asset.}{fig:example-figure}
+\picHere{assets/images/github-icon.png}{0.8\textwidth}{Example figure included from external asset.}{fig:example-figure}
+
+\subsection{\texttt{\textbackslash picHereSimple}: Minimal decorative figure insertion}
 
 While \texttt{\textbackslash picHereSimple} is a minimal drop-in for decorative images that do not require referencing. (No caption or label, just the image.)
 
-The usage pattern is:
+\noindent The following snippet and its output demonstrate how to use it:
 
-\begin{itemize}
-  \item \texttt{\textbackslash picHereSimple\{path\}\{width\}} gives you the same layout without caption or label when the image is purely decorative.
-\end{itemize}
-
-Here is an example of how to use it:
-
-\begin{lstlisting}[style=githubLight, language={[LaTeX]TeX}, caption={Using the figure helpers in a listing block.}, label={lst:figure-helper-macros}]
-    \picHereSimple{assets/images/github-icon.png}{0.7\textwidth}
+\begin{lstlisting}[style=githubLight, language={[LaTeX]TeX}, label={lst:figure-helper-macros}]
+    \picHereSimple{assets/images/github-icon.png}{0.8\textwidth}
 \end{lstlisting}
 
-\picHereSimple{assets/images/github-icon.png}{0.7\textwidth}
+\picHereSimple{assets/images/github-icon.png}{0.8\textwidth}
