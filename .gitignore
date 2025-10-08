@@ -20,9 +20,6 @@
 # Legacy build outputs
 output/
 
-# VSCode workspace settings
-.vscode/
-
 # System files
 .DS_Store
 Thumbs.db

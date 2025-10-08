@@ -1,0 +1,76 @@
+{
+    // LaTeX Workshop 基本配置
+    "latex-workshop.latex.autoBuild.run": "onSave", // 保存时自动编译
+    "latex-workshop.latex.autoClean.run": "onSucceeded", // 编译成功后自动清理
+    "latex-workshop.latex.clean.subfolder.enabled": true, // 启用子文件夹清理
+    "latex-workshop.latex.clean.fileTypes": [
+        ".aux",
+        ".bbl",
+        ".bcf",
+        ".blg",
+        ".fdb_latexmk",
+        ".fls",
+        ".lof",
+        ".lot",
+        ".out",
+        ".run.xml",
+        ".synctex.gz",
+        ".toc"
+    ],
+
+    // VSCode 相关配置
+    "latex-workshop.view.pdf.viewer": "tab", // 在 VSCode 自带的新标签页中打开 PDF
+    "latex-workshop.message.log.show": false, // 不自动弹日志窗口
+    "latex-workshop.latex.recipe.default": "first", // 默认使用第一个 recipe（毕竟只有收尾工作需要渲染引用相关信息）
+    "latex-workshop.synctex.afterBuild.enabled": true, // 启用 SyncTeX （用于源代码与 PDF 之间的跳转）
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click", // 双击 PDF 跳转到源代码对应的位置
+
+    // 构建流程定义
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Quick Build (pdflatex → latexmk-clean)",
+            "tools": [
+                "pdflatex",
+                "latexmk-clean"
+            ]
+        },
+        {
+            "name": "Full Build (pdflatex → biber → pdflatex ×2 → latexmk-clean)",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex",
+                "latexmk-clean"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-shell-escape",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk-clean",
+            "command": "latexmk",
+            "args": [
+                "-c",
+                "%DOC%"
+            ]
+        }
+    ]
+}
