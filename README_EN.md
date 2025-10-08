@@ -263,6 +263,9 @@ TODO: Create dedicated documentation for custom commands and jump links
 2. "Why is there no reference in the PDF file after I compile? (using `VSCode`)"
     - Diagnosis: You may be using the default recipe provided by the project, "Quick Build", which does not include the `biber` call.
     - Solution: Just manually click and select the `Full Build` recipe in the extension bar to compile.
+3. "Why do I encounter compilation timeout issues when using this template on `Overleaf`? Isn't this a template that focuses on compilation speed?"
+    - According to [this webpage](https://www.overleaf.com/blog/changes-to-free-compile-timeout), due to revenue issues, from June 2025, `Overleaf` has reduced the compilation time limit for free users to **10 seconds**. The first compilation may time out due to the need for initialization.
+    - Solution: Just try to recompile 2 or 3 times, or try refreshing to restore normalcy.
 
 # TODO
 - [x] Modularize the `LaTeX` template
