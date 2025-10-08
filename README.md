@@ -242,7 +242,27 @@ pdflatex main.tex
 `content`下的文件并非固定的，你可以根据需要添加、删除、重命名这些文件并在`main.tex`中进行相应的调用即可。
 
 
-## 自定义命令
+# 自定义命令
+
+目前在文中的主要自定义命令包括：
+
+- `\TODO{ ... }`: 用红色字体在正文中标记待办事项
+    
+    ![TODO Example](./assets/readme/todo_example.jpg)
+
+- `\picHere{path}{width}{caption}{label}`: 插入图片
+    - `path`: 图片路径
+    - `width`: 图片宽度（如 `0.8\textwidth`）
+    - `caption`: 图片标题（显示在图片下方）
+    - `label`: 图片标签（用于交叉引用）
+    
+    ![Picture Example](./assets/readme/pichere_example.jpg)
+
+- `\picHereSimple{width}{path}`: 简化版插入图片（无标题和标签）
+    - `width`: 图片宽度（如 `0.8\textwidth`）
+    - `path`: 图片路径
+    
+    ![Picture Simple Example](./assets/readme/picheresimple_example.jpg)
 
 TODO: 制作专门的自定义命令的文档，以及跳转链接
 
