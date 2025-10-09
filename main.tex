@@ -10,6 +10,9 @@
 \input{config/style}
 \input{config/commands}
 
+% === FYP Custom Configuration ===
+\input{config/fyp_settings}
+
 \begin{document}
 
 \pagenumbering{gobble}
@@ -23,6 +26,8 @@
 \TemplateAbstract
 \clearpage
 
+\input{content/00-abstract}
+\newpage
 \tableofcontents
 \clearpage
 
@@ -31,12 +36,11 @@
 % === Main Content ===
 % 正文按章节拆分在 content/ 目录，可按需增删或重排。
 \input{content/01-introduction}
-\input{content/02-math}
-\input{content/03-figures}
+\input{content/02-literature-review}
 \newpage
-\input{content/04-tables}
-\input{content/05-code}
-\input{content/06-references}
+\input{content/03-project-plan}
+\newpage
+\input{content/04-conclusion}
 
 % === References & Appendix ===
 \newpage
@@ -45,6 +49,7 @@
 \clearpage
 \appendix
 \pagenumbering{Roman}
-\input{content/appendix}
+\input{content/Appendix-A}
+\input{content/Appendix-B}
 
 \end{document}

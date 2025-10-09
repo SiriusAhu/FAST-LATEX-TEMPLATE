@@ -1,0 +1,88 @@
+% fyp_proposal_settings.tex
+% -------------------------------------------------------------------
+%   XJTLU FYP Proposal - Custom Configuration for FAST Template
+% -------------------------------------------------------------------
+
+% === 1. 字体和行距设置 ===
+% 加载 Times New Roman 字体宏包
+\usepackage{newtxtext, newtxmath}
+% 设置全局行距为 1.5 倍
+\onehalfspacing
+% 两端对齐
+\usepackage{ragged2e}
+
+% === 2. 章节标题格式化 (核心要求) ===
+% 使用 titlesec 宏包重新定义章节标题样式
+% \section 对应一级标题 (Introduction), 设置为 20pt
+\titleformat{\section}
+    {\normalfont\bfseries\fontsize{20}{24}\selectfont} % 格式
+    {\thesection} % 标签
+    {1em} % 标签与标题之间的距离
+    {} % 标题前的代码
+
+% \subsection 对应二级标题 (Introduction, Background), 设置为 16pt
+\titleformat{\subsection}
+    {\normalfont\bfseries\fontsize{16}{19}\selectfont}
+    {\thesubsection}
+    {1em}
+    {}
+
+% \subsubsection 对应三级标题 (Motivation, Objectives), 设置为 14pt
+\titleformat{\subsubsection}
+    {\normalfont\bfseries\fontsize{14}{17}\selectfont}
+    {\thesubsubsection}
+    {1em}
+    {}
+
+% 确保标题后的第一段也进行首行缩进
+\usepackage{indentfirst}
+
+\providecommand{\TemplateSupervisorName}{}
+
+% === 3. 封面页定制 ===
+% 移除 FAST 模板默认的 \maketitle 命令，我们将手动构建封面
+% \renewcommand{\maketitle}{}
+
+% 创建一个新的命令来生成符合 FYP 要求的封面
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+        \centering
+        % XJTLU Logo
+        \includegraphics[width=0.8\textwidth]{assets/images/xjtlu-title.png}\par
+        \vspace{2cm}
+        {\huge\bfseries \TemplateModuleCode~\TemplateModuleName}\par
+        \vspace{2cm}
+        {\Huge\bfseries \TemplateModuleName}\par % 报告标题
+        \vspace{1cm}
+        {\LARGE Proposal Report}\par
+        \vfill
+        {\large In Partial Fulfillment}\par
+        {\large of the Requirements for the Degree of}\par
+        {\large Bachelor of Engineering}\par
+        \vspace{2cm}
+        % 学生信息
+        \large
+        \begin{tabular}{|ll|p{0.4\textwidth}|}
+            \hline
+            Student Name & : & \TemplateAuthorName \\
+            \hline
+            Student ID   & : & \TemplateAuthorID \\
+            \hline
+            Supervisor   & : & \TemplateSupervisorName \\
+            \hline
+        \end{tabular}\par
+        \vfill
+        {\large School of AI and Advanced Computing}\par
+        {\large Xi’an Jiaotong-Liverpool University}\par
+        November 2025
+    \end{titlepage}
+}
+
+% === 4. 页眉页脚调整 (可选) ===
+% 如果需要，可以在这里调整页眉页脚以符合特定要求
+% 示例：移除页眉，仅保留页脚的页码和学生信息
+\pagestyle{fancy}
+\fancyhf{} % 清空所有页眉页脚
+\fancyfoot[C]{\thepage} % 中间页码
+\renewcommand{\headrulewidth}{0pt} % 移除页眉横线
+\renewcommand{\footrulewidth}{0pt} % 移除页脚横线
