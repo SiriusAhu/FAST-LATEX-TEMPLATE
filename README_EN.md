@@ -35,3 +35,7 @@ This is a dedicated branch of the FAST LaTeX template, adapted to the Final Year
 - The primary metadata is located in `meta.tex` (for example: supervisor name).
 
 - FYP-specific settings can be found in `config/fyp_settings.tex`; that file includes detailed comments—please edit it as needed.
+
+# Showcase
+
+The compiled PDF using this template is also included in the repository. For detailed effects, please refer to [main.pdf](./main.pdf).

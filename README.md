@@ -35,3 +35,7 @@
 - 主要配置位于`meta.tex`，比如说导师姓名。
 
 - 有关FYP Proposal的主要配置位于`config/fyp_settings.tex`文件中，内部有详细注释说明。请根据需要进行修改。
+
+# 效果展示
+
+用该模板编译的PDF文件也一并上传到了仓库中，详细效果请查看[main.pdf](./main.pdf)。
