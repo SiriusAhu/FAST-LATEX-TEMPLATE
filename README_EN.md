@@ -39,3 +39,7 @@ This is a dedicated branch of the FAST LaTeX template, adapted to the Final Year
 # Showcase
 
 The compiled PDF using this template is also included in the repository. For detailed effects, please refer to [main.pdf](./main.pdf).
+
+## PNG
+
+![main.png](./assets/readme/main.png)

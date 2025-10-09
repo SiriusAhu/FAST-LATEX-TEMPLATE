@@ -44,4 +44,4 @@
 
 ## PNG
 
-![main.png](./assets/images/main.png)
+![main.png](./assets/readme/main.png)
