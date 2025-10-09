@@ -38,4 +38,10 @@
 
 # 效果展示
 
+## PDF
+
 用该模板编译的PDF文件也一并上传到了仓库中，详细效果请查看[main.pdf](./main.pdf)。
+
+## PNG
+
+![main.png](./assets/images/main.png)
