@@ -87,27 +87,29 @@
 \renewcommand{\headrulewidth}{0pt} % 移除页眉横线
 \renewcommand{\footrulewidth}{0pt} % 移除页脚横线
 
-% === 5. 附录格式设置（仅在 \appendix 之后生效） ===
-\usepackage[toc,page]{appendix}
+% === 5. 附录仅在 appendices 环境内生效的样式 ===
+% 1) 不自动生成“Appendices”单独页面 → 绝对不要用 [page] 选项
+\usepackage{appendix}
+
+% 2) 需要控制标题与目录格式
 \usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{etoolbox}  % 提供 \AtBeginEnvironment
 
-% 保存正文 section/subsection 样式
-\let\origsection\section
-\let\origsubsection\subsection
-
-% 定义一个钩子：当进入附录时替换标题格式
-\AtBeginEnvironment{appendices}{
-  % 修改标题格式
-  \titleformat{\section}
+% 仅在进入 \begin{appendices} ... \end{appendices} 内修改样式
+\AtBeginEnvironment{appendices}{%
+  % 全局正文不受影响
+  \titleformat{\section}[block]
     {\normalfont\bfseries\fontsize{18}{22}\selectfont}
-    {Appendix~\Alph{section}.}
-    {1em}{}
-  \titleformat{\subsection}
+    {Appendix~\Alph{section}.}{1em}{}
+  \titleformat{\subsection}[block]
     {\normalfont\bfseries\fontsize{16}{19}\selectfont}
-    {\Alph{section}.\arabic{subsection}}
-    {1em}{}
+    {\Alph{section}.\arabic{subsection}}{1em}{}
 
-  % 修改目录中的标题
-  \renewcommand{\appendixtocname}{Appendices}
-  \renewcommand{\appendixpagename}{Appendices}
+  % ---------- 目录格式：让 TOC 显示为 “Appendix A. Title of Appendix” ----------
+  % 这三行通过把命令写进 .toc，只影响从现在起写入目录的“附录”条目
+  \addtocontents{toc}{\protect\renewcommand{\protect\cftsecpresnum}{Appendix~}}
+  \addtocontents{toc}{\protect\renewcommand{\protect\cftsecaftersnum}{.\space}}
+  % 给“Appendix A.”预留更宽的编号区，避免压到标题；可按需要调大/调小
+  \addtocontents{toc}{\protect\setlength{\protect\cftsecnumwidth}{7em}}
 }
