@@ -41,6 +41,10 @@
 >
 > Made with [Codex](https://openai.com/codex/) and [Github Copilot](https://github.com/features/copilot)
 
+# Showcase
+
+The compiled PDF using this template is also included in the repository. For detailed effects, please refer to [main.pdf](./main.pdf).
+
 # Introduction
 
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** is a template designed to facilitate students' use of `LaTeX` for coursework report writing. It supports both local and online platforms (such as `Overleaf`), supports bilingual content, is easy to get started with, and works out of the box.
