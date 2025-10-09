@@ -276,3 +276,7 @@ TODO: Create dedicated documentation for custom commands and jump links
 - [x] Complete English `README.md`
 - [ ] Create `docs` folder to place documentation and examples
 - [ ] Provide some pseudo-coursework examples to demonstrate potential (welcome to use this template and submit PRs to examples!)
+
+# Image Preview
+
+![png preview](./assets/readme/main.png)

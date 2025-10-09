@@ -299,3 +299,7 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
 - [x] 完成英文`README.md`
 - [ ] 创建`docs`文件夹，放置文档和示例
 - [ ] 给出一些伪作业的examples，以便展示潜力（欢迎使用该模板并提交PR到examples中！）
+
+# 图片预览
+
+![png preview](./assets/readme/main.png)
