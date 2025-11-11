@@ -7,21 +7,16 @@
 \providecommand{\TemplateColorTheme}{fastprimary}
 \providecommand{\TemplateCodeListingStyle}{githubLight}
 
-% --- Bibliography style (friendly names) ---
+% --- Bibliography style (friendly names mapped to classic BibTeX .bst files) ---
 \providecommand{\TemplateBibStyle}{ieee} % public-friendly name: ieee, apa7, ...
 \usepackage{xstring}
-\providecommand{\TemplateBibLaTeXStyleName}{ieee}
-\IfStrEq{\TemplateBibStyle}{apa7}{\renewcommand{\TemplateBibLaTeXStyleName}{apa}}{}
-\PassOptionsToPackage{backend=biber,sorting=none,style=\TemplateBibLaTeXStyleName}{biblatex}
+\providecommand{\TemplateBibTexStyleName}{\TemplateBibStyle}
+\IfStrEq{\TemplateBibStyle}{ieee}{\renewcommand{\TemplateBibTexStyleName}{IEEEtran}}{}
+\IfStrEq{\TemplateBibStyle}{apa7}{\renewcommand{\TemplateBibTexStyleName}{apalike}}{}
 
 % Theme toggles (true = enable, false = disable).
 \newif\ifTemplateMonochromeTheme
 \TemplateMonochromeThemefalse
-
-% Chinese language support toggle (true = enable, false = disable).
-% Enabling Chinese support will increase compilation time.
-\newif\ifTemplateChineseSupport
-\TemplateChineseSupportfalse
 
 % Header/footer rules (true = show rule, false = remove rule).
 \newif\ifTemplateHeadRule

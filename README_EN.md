@@ -5,9 +5,9 @@
 
 <div align="center">
 
-<!-- PDFLaTeX, Biber, BibLaTeX, listings -->
-![Build with PDFLaTeX](https://img.shields.io/badge/build-PDFLaTeX-blue)
-![Biber Supported](https://img.shields.io/badge/biblatex-biber-yellow)
+<!-- XeLaTeX, BibTeX, listings -->
+![Build with XeLaTeX](https://img.shields.io/badge/build-XeLaTeX-blue)
+![BibTeX Ready](https://img.shields.io/badge/bibliography-BibTeX-yellow)
 ![Listings Supported](https://img.shields.io/badge/code-listings-green)
 
 </div>
@@ -47,6 +47,11 @@
 
 [Click here to jump to Usage Instructions](#usage-instructions).
 
+## 🚨 BREAKING CHANGE 🚨
+This project's core compilation engine has switched from `pdfLaTeX` to `XeLaTeX`, and the bibliography processing chain has changed from `biblatex + biber` to classic `BibTeX`.
+
+For more details, please refer to [CHANGELOG.md](./CHANGELOG.md).
+
 ## Main Features
 
 - [x] Supports common core requirements such as mathematical formulas, table drawing, code highlighting, and references
@@ -56,9 +61,9 @@
 
 ## Supported Compilation Environments
 
-- ✅ Local TeX Live / MiKTeX distributions (using `pdfLaTeX`)
-- ✅ `Overleaf` platform (select `pdfLaTeX` compiler in the menu)
-- ⚠️ The template is only adapted for `pdfLaTeX`; if you need `XeLaTeX`, `LuaLaTeX`, or other engines, please extend the configuration yourself
+- ✅ Local TeX Live / MiKTeX distributions (using `XeLaTeX`)
+- ✅ `Overleaf` platform (select the `XeLaTeX` compiler in the menu)
+- ⚠️ The template is now tailored for `XeLaTeX`; if you need `pdfLaTeX`, `LuaLaTeX`, or other engines, please extend the configuration yourself
 
 <!-- TODO: Add effect images -->
 
@@ -78,14 +83,14 @@ This project is based on:
 
 ## Core Tools
 
-- `PDFLaTeX`: One of the mainstream LaTeX engines, fast and highly compatible.
-- `biblatex` + `biber`: Powerful reference management tool supporting various citation formats.
+- `XeLaTeX`: A modern LaTeX engine with native Unicode and font support.
+- `BibTeX`: The classic bibliography workflow with a fast and predictable command chain.
 - `listings`: A classic, reliable, and fast code highlighting tool.
-- `CJKutf8`: Simple and easy-to-use Chinese support package (optional, disabled by default).
+- `xeCJK` (optional): Chinese typesetting support tailored for `XeLaTeX` (disabled by default).
 - `cleveref`: Intelligent cross-reference tool that automatically identifies figures, tables, equations, etc.
-- `booktabs`, `amsmath`, `graphicx`, etc.: A series of classic excellent packages in the default `PDFLaTeX` ecosystem.
+- `booktabs`, `amsmath`, `graphicx`, etc.: A set of tried-and-true packages in the standard LaTeX ecosystem.
 
-> ⚠️ **Note**: The template supports Chinese typesetting (via the `CJKutf8` package), but it is **disabled by default** to maintain the fastest compilation speed. If you need to use Chinese, please change `\TemplateChineseSupportfalse` to `\TemplateChineseSupporttrue` in `options.tex`. Also uncomment the Chinese reference examples in `bib/references.bib`.
+> ⚠️ **Note**: Chinese typesetting is enabled out of the box through `xeCJK`, which auto-selects a suitable font from a curated list. If you need to lock to a specific font, edit the candidate list inside `\TemplateSetupCJKFonts` in `config/preamble.tex`.
 
 > ⚠️ **Note**: The template supports drawing tools like `TikZ` + `PGFPlots`, but these packages are complex and significantly increase compilation time. If needed, please manually add the relevant packages in `config/preamble.tex`.
 
@@ -148,11 +153,9 @@ This project supports both local compilation (recommended with `VSCode`) and onl
 First, verify that `TeX Live` and core tools are already installed on your device.
 
 ```bash
-tex --version  # Verify TeX Live is successfully installed
-
-pdflatex --version  # Verify PDFLaTeX is successfully installed
-
-biber --version  # Verify Biber is successfully installed
+tex --version     # Verify TeX Live is successfully installed
+xelatex --version # Verify XeLaTeX is successfully installed
+bibtex --version  # Verify BibTeX is successfully installed
 ```
 
 If not installed, please install [**TeX Live 2024**](https://www.tug.org/texlive/) or a newer version (older versions have not been tested).
@@ -190,7 +193,7 @@ Modify according to your needs.
     - Abstract
 - `options.tex`: Adjust the following settings according to personal preferences:
     - Theme color, code style, and other options
-    - **Chinese support**: If you need to use Chinese, change `\TemplateChineseSupportfalse` to `\TemplateChineseSupporttrue`
+    - **Chinese support**: Enabled by default; tweak `\TemplateSetupCJKFonts` in `config/preamble.tex` if you want to force specific fonts
 
 ### 3. Try Compiling
 
@@ -198,13 +201,13 @@ Try to see if compilation is successful: Are there any rendering errors? Is the 
 
 #### 3.1. Compile Using Command Line
 
-Compilation chain: `PDFLaTeX -> Biber -> PDFLaTeX -> PDFLaTeX`.
+Compilation chain: `XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX`.
 
 ```bash
-pdflatex main.tex
-biber main
-pdflatex main.tex
-pdflatex main.tex
+xelatex main.tex
+bibtex main
+xelatex main.tex
+xelatex main.tex
 ```
 
 #### 3.2. Compile Using VSCode
@@ -244,14 +247,14 @@ The files under `content` are not fixed. You can add, delete, and rename these f
 TODO: Create dedicated documentation for custom commands and jump links
 
 # Q&A
-- Why use `PDFLaTeX` instead of `XeLaTeX`, or `LuaLaTeX` which is touted as "the future direction"?
-    1. Pursuit of **speed**: Students need to compile frequently while doing coursework. Among the mainstream engines, `PDFLaTeX` is the fastest.
-    1. Pursuit of **compatibility**: `PDFLaTeX` is a mature engine with excellent support from both local and online tools (such as `Overleaf`).
-    1. Pursuit of **ease of use**: The purpose of creating this template is to make it convenient for more students to use LaTeX. Considering installation difficulty and usage difficulty, `PDFLaTeX` is undoubtedly the most suitable choice.
-- Why still choose `biblatex + biber` instead of the faster `bibtex`?
-    1. **Advanced functionality**: The combination of `biblatex` and `biber` supports more complex citation styles (such as APA7, IEEE, GB/T 7714) and can easily handle modern literature needs such as Chinese, special characters, DOI, and URL.
-    2. **Mainstream trend in academic writing**: Although compilation is slightly slower, `biblatex + biber` is already the mainstream trend in modern academic writing and is supported by major journals and templates.
-    3. **Does not affect user experience**: Although compilation is relatively slow, it still only takes a few seconds and is still acceptable. Moreover, after writing for so long, why not use these precious few seconds to catch your breath? 😉
+- Why does the template now require `XeLaTeX`?
+    1. **Better multilingual + font story**: `XeLaTeX` natively understands Unicode and system fonts, which makes mixing English/Chinese + custom school fonts effortless.
+    2. **Widely available today**: Local TeX Live, lab computers, and Overleaf all ship with `XeLaTeX`, so the barrier is no longer what it used to be.
+    3. **Feature/Speed balance**: It is only slightly slower than `pdfLaTeX`, yet unlocks OpenType features, emoji, RTL scripts, etc.—a good trade for coursework comfort.
+- Why switch from `biblatex + biber` back to classic `BibTeX`?
+    1. **Real-world usage**: Most coursework reports cite fewer than a couple dozen references, so `biblatex`'s rich feature set rarely gets exercised.
+    2. **Faster builds**: `BibTeX` keeps the toolchain short (`xelatex → bibtex → xelatex ×2`), which matters when Overleaf enforces a 10 s time limit for free accounts.
+    3. **Simpler debugging**: Fewer auxiliary files and a single `.bst` file make it easier to explain, reproduce, and fix bibliography issues for classmates.
 - Why use `listings` instead of `minted`?
     1. **Simpler installation and use**: `minted` depends on Python and Pygments, requiring additional operations for installation and configuration, which does not align with this project's principle of "ease of use". `listings` works out of the box.
     2. **Faster compilation**: `minted` needs to call external programs during compilation, causing slower compilation. `listings` is a pure LaTeX package with faster compilation speed.
@@ -261,7 +264,7 @@ TODO: Create dedicated documentation for custom commands and jump links
     - Diagnosis: You may have already made settings related to `"latex-workshop.latex.recipe.default"` in the default configuration file.
     - Solution: Change `"latex-workshop.latex.recipe.default"` in the configuration file to `"lastUsed"` (does not affect use in other projects), or comment it out directly (may affect use in other projects).
 2. "Why is there no reference in the PDF file after I compile? (using `VSCode`)"
-    - Diagnosis: You may be using the default recipe provided by the project, "Quick Build", which does not include the `biber` call.
+    - Diagnosis: You may be using the default recipe provided by the project, "Quick Build", which does not include the `bibtex` call.
     - Solution: Just manually click and select the `Full Build` recipe in the extension bar to compile.
 3. "Why do I encounter compilation timeout issues when using this template on `Overleaf`? Isn't this a template that focuses on compilation speed?"
     - According to [this webpage](https://www.overleaf.com/blog/changes-to-free-compile-timeout), due to revenue issues, from June 2025, `Overleaf` has reduced the compilation time limit for free users to **10 seconds**. The first compilation may time out due to the need for initialization.

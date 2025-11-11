@@ -5,9 +5,9 @@
 
 <div align="center">
 
-<!-- PDFLaTeX, Biber, BibLaTeX, listings -->
-![Build with PDFLaTeX](https://img.shields.io/badge/build-PDFLaTeX-blue)
-![Biber Supported](https://img.shields.io/badge/biblatex-biber-yellow)
+<!-- XeLaTeX, BibTeX, listings -->
+![Build with XeLaTeX](https://img.shields.io/badge/build-XeLaTeX-blue)
+![BibTeX Ready](https://img.shields.io/badge/bibliography-BibTeX-yellow)
 ![Listings Supported](https://img.shields.io/badge/code-listings-green)
 
 </div>
@@ -47,6 +47,12 @@
 
 [点击这里跳转到使用方法](#使用方法)。
 
+## 🚨 BREAKING CHANGE 🚨
+该项目的核心编译引擎已从`pdfLaTeX`切换为`XeLaTeX`，参考文献处理链也从`biblatex + biber`切换为经典的`BibTeX`。
+
+详情请参阅[CHANGELOG.md](./CHANGELOG.md)。
+
+
 ## 主要特性
 
 - [x] 支持数学公式、表格绘制、代码高亮、参考文献等常见核心需求
@@ -56,9 +62,9 @@
 
 ## 支持的编译环境
 
-- ✅ 本地 TeX Live / MiKTeX 等发行版（使用 `pdfLaTeX`）
-- ✅ `Overleaf` 平台（在菜单中选择 `pdfLaTeX` 编译器）
-- ⚠️ 模板仅针对 `pdfLaTeX` 做了适配；如需 `XeLaTeX`、`LuaLaTeX` 等引擎，请自行扩展配置
+- ✅ 本地 TeX Live / MiKTeX 等发行版（使用 `XeLaTeX`）
+- ✅ `Overleaf` 平台（在菜单中选择 `XeLaTeX` 编译器）
+- ⚠️ 模板现已针对 `XeLaTeX` 做优化；如需 `pdfLaTeX`、`LuaLaTeX` 等其他引擎，请自行扩展配置
 
 <!-- TODO:贴上效果图 -->
 
@@ -78,14 +84,14 @@
 
 ## 核心工具
 
-- `PDFLaTeX`：`LaTeX`的主流引擎之一，速度快，兼容性好。
-- `biblatex` + `biber`：强大的参考文献处理工具，支持多种引用格式。
+- `XeLaTeX`：现代 `LaTeX` 引擎，原生 Unicode 支持，字体配置灵活。
+- `BibTeX`：经典参考文献处理链，命令简单、编译迅速。
 - `listings`：一个经典、可靠、快速的代码高亮工具。
-- `CJKutf8`：简单易用的中文支持宏包（可选，默认关闭）。
+- `xeCJK`（可选）：针对 `XeLaTeX` 的中文支持宏包（默认关闭以保持轻量）。
 - `cleveref`：智能交叉引用工具，自动识别图、表、公式等。
-- `booktabs`, `amsmath`, `graphicx`等：一系列`PDFLaTeX`默认生态下的经典优秀宏包。
+- `booktabs`, `amsmath`, `graphicx`等：一系列 `LaTeX` 默认生态下的经典优秀宏包。
 
-> ⚠️ **提示**：模板支持中文排版（通过 `CJKutf8` 宏包），但**默认关闭**以保持最快的编译速度。如需使用中文，请在 `options.tex` 中将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`。同时取消注释 `bib/references.bib` 中的中文参考文献示例。
+> ⚠️ **提示**：模板默认启用 `xeCJK` 并自动在常见字体中择优选择。如需强制指定字体，可在 `config/preamble.tex` 中调整 `\TemplateSetupCJKFonts` 内的候选列表。
 
 > ⚠️ **提示**：模板支持使用 `TikZ` + `PGFPlots` 等绘图工具，但这些包较为复杂且会显著延长编译时间。如需使用，请在 `config/preamble.tex` 中手动添加相关宏包。
 
@@ -148,11 +154,9 @@ fast-cw-latex-template/
 先验证一下`Tex Live`和核心工具是否已经安装在设备上。
 
 ```bash
-tex --version  # 验证Tex Live成功安装
-
-pdflatex --version  # 验证PDFLaTeX成功安装
-
-biber --version  # 验证Biber成功安装
+tex --version      # 验证 TeX Live 成功安装
+xelatex --version  # 验证 XeLaTeX 成功安装
+bibtex --version   # 验证 BibTeX 成功安装
 ```
 
 如果没有安装的话，请安装 [**Tex Live 2024**](https://www.tug.org/texlive/) 或更新版本（旧版本未测试）。
@@ -190,7 +194,7 @@ cd FAST-LATEX-TEMPLATE
     - 摘要
 - `options.tex`：根据个人喜好调整以下设置：
     - 主题色、代码风格等选项
-    - **中文支持**：如需使用中文，将 `\TemplateChineseSupportfalse` 改为 `\TemplateChineseSupporttrue`
+    - **中文支持**：默认开启并自动匹配常见字体，如需指定特定字体，可编辑 `config/preamble.tex` 中的 `\TemplateSetupCJKFonts`
     - **参考文献样式**：新增 `\TemplateBibStyle` 选项用于选择引用样式。例如：
         - `ieee`（默认）
         - `apa7`（对应 biblatex 的 `apa` 样式）
@@ -201,13 +205,13 @@ cd FAST-LATEX-TEMPLATE
 
 #### 3.1. 使用命令行编译
 
-编译链条：`PDFLaTeX -> Biber -> PDFLaTeX -> PDFLaTeX`。
+编译链条：`XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX`。
 
 ```bash
-pdflatex main.tex
-biber main
-pdflatex main.tex
-pdflatex main.tex
+xelatex main.tex
+bibtex main
+xelatex main.tex
+xelatex main.tex
 ```
 
 #### 3.2. 使用VSCode编译
@@ -267,14 +271,14 @@ pdflatex main.tex
 TODO: 制作专门的自定义命令的文档，以及跳转链接
 
 # Q&A
-- 为什么使用`PDFLaTeX`而不是`XeLaTeX`，亦或是标榜为“未来发展方向”的`LuaLaTeX`？
-    1. 对**速度**的追求：学生在写作业的时候需要频繁地编译，几种主流引擎中，`PDFLaTeX`的速度是最快的。
-    1. 对**兼容性**的追求：`PDFLaTeX`是一个已经很成熟的引擎，无论是本地还是在线工具（如`Overleaf`）都对其有着很完善的支持。
-    1. 对**易用性**的追求：我制作这个模板的目的是为了让更多的同学能便利地用上LaTeX。考虑到安装难度和使用难度，`PDFLaTeX`无疑是最合适的选择。
-- 为什么仍然选择 `biblatex + biber`，而不是更快的 `bibtex`？
-    1. **功能先进**：`biblatex` 与 `biber` 的组合支持更复杂的引用样式（如 APA7、IEEE、GB/T 7714），并能轻松处理中文、特殊字符、DOI、URL 等现代文献需求。
-    2. **学术写作的主流趋势**：虽然编译稍慢，但 `biblatex + biber` 已是现代学术写作的主流趋势，并获得主要期刊和模板的支持。
-    3. **不影响使用体验**：虽然编译相对较慢，但是也只需要几秒钟，仍然可以接受。另外，写了这么久，为何不利用这难得的几秒钟来让自己喘口气呢？😉
+- 为什么模板现在改为强制使用 `XeLaTeX`？
+    1. **跨平台字体体验**：`XeLaTeX` 原生支持 Unicode 和系统字体，更容易满足“导入学校官方字体/多语言混排”等课堂作业场景。
+    2. **设备适配更广**：学校机房、同学电脑以及 Overleaf 等平台都已默认支持 `XeLaTeX`，迁移成本比早些年低得多。
+    3. **功能和速度的平衡**：虽然比 `pdfLaTeX` 稍慢，但换来的是更强的功能（OpenType、emoji、右左书写等），完全值得这点时间差。
+- 为什么从 `biblatex + biber` 切换回了经典的 `BibTeX`？
+    1. **使用场景反馈**：大多数同学只需要十几条参考文献，难以触及 `biblatex` 的优势区间。
+    2. **编译时间敏感**：`BibTeX` 链路更短，尤其在 Overleaf 免费版 10s 限时下能够显著降低首编失败率。
+    3. **门槛更低**：`BibTeX` 不需要额外的 `.bcf/.run.xml` 文件，也更容易通过命令行或 VSCode Recipe 理解和排障。
 - 为什么使用`listings` 而不是 `minted`？
     1. **安装和使用更简单**：`minted` 依赖 Python 和 Pygments，安装和配置需要额外的操作，不符合该项目“易用”的初衷。而 `listings` 可以做到开箱即用。
     2. **编译速度更快**：`minted` 需要在编译时调用外部程序，导致编译速度变慢。而 `listings` 是纯 LaTeX 宏包，编译速度更快。
@@ -284,7 +288,7 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
     - 诊断：有可能你已经在默认的配置文件下进行过有关`"latex-workshop.latex.recipe.default"`的设置。
     - 解决方案：将配置文件中的`"latex-workshop.latex.recipe.default"`改为`"lastUsed"`（不影响在其他项目中的使用），或者直接注释掉（可能影响在其他项目中的使用）。
 2. “为什么我编译后的PDF文件中没有引用？（是用的是`VSCode`）”
-    - 诊断：有可能是你使用的是项目给出的默认recipe，“Quick Build”，其不包含`biber`的调用。
+    - 诊断：有可能是你使用的是项目给出的默认recipe，“Quick Build”，其不包含`bibtex`的调用。
     - 解决方案：手动点击选择扩展栏中的`Full Build`这一recipe进行编译就好啦。
 3. ”为什么我在`Overleaf`中使用这个模板时出现了编译超时问题？这不是一个注重编译速度的模板吗？”
     - 根据[这个网页](https://www.overleaf.com/blog/changes-to-free-compile-timeout)，由于营收问题，从2025.06开始`Overleaf`对免费用户的编译时间限制降为**10s**。而首次编译由于需要初始化则可能会超时。
