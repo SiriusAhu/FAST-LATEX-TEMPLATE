@@ -41,6 +41,10 @@
 >
 > Made with [Codex](https://openai.com/codex/) and [Github Copilot](https://github.com/features/copilot)
 
+# 效果展示
+
+用该模板编译的PDF文件也一并上传到了仓库中，详细效果请查看[main.pdf](./main.pdf)。
+
 # 简介
 
 **[FAST](https://github.com/SiriusAhu/FAST-CW-LATEX-TEMPLATE)** 是一个致力于方便学生使用`LaTeX`进行作业报告写作的模板，支持本地与在线平台（如`Overleaf`），支持中英文，易于上手，开箱即用。
@@ -299,3 +303,7 @@ TODO: 制作专门的自定义命令的文档，以及跳转链接
 - [x] 完成英文`README.md`
 - [ ] 创建`docs`文件夹，放置文档和示例
 - [ ] 给出一些伪作业的examples，以便展示潜力（欢迎使用该模板并提交PR到examples中！）
+
+# 图片预览
+
+![png preview](./assets/readme/main.png)
