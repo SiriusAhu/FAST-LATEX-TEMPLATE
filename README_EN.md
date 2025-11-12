@@ -36,6 +36,13 @@ This is a dedicated branch of the FAST LaTeX template, adapted to the Final Year
 
 - FYP-specific settings can be found in `config/fyp_settings.tex`; that file includes detailed comments—please edit it as needed.
 
+# 💡 How to Clone
+If you want to clone this branch directly, besides cloning the main repository and switching branches, you can also use the following command:
+
+```bash
+git clone -b xjtlu-tc-aiac-fyp-proposal-2025 https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE
+```
+
 # Showcase
 
 The compiled PDF using this template is also included in the repository. For detailed effects, please refer to [main.pdf](./main.pdf).

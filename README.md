@@ -36,6 +36,13 @@
 
 - 有关FYP Proposal的主要配置位于`config/fyp_settings.tex`文件中，内部有详细注释说明。请根据需要进行修改。
 
+# 💡 How to Clone
+想要直接clone该分支，除了可以先clone主仓库再切换分支外，还可以直接使用下面的命令：
+
+```bash
+git clone -b xjtlu-tc-aiac-fyp-proposal-2025 https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE
+```
+
 # 效果展示
 
 ## PDF
