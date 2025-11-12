@@ -51,6 +51,8 @@
 
 [点击这里跳转到使用方法](#使用方法)。
 
+如果你在找基于该基础模板的其他模板，请查看其他分支，如[XJTLU AIAC FYP Proposal 2025模板](https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE/tree/xjtlu-tc-aiac-fyp-proposal-2025)
+
 ## 🚨 BREAKING CHANGE 🚨
 该项目的核心编译引擎已从`pdfLaTeX`切换为`XeLaTeX`，参考文献处理链也从`biblatex + biber`切换为经典的`BibTeX`。
 

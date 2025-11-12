@@ -51,6 +51,8 @@ The compiled PDF using this template is also included in the repository. For det
 
 [Click here to jump to Usage Instructions](#usage-instructions).
 
+If you are looking for other templates based on this foundational template, please check other branches, such as the [XJTLU AIAC FYP Proposal 2025 template](https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE/tree/xjtlu-tc-aiac-fyp-proposal-2025)
+
 ## 🚨 BREAKING CHANGE 🚨
 This project's core compilation engine has switched from `pdfLaTeX` to `XeLaTeX`, and the bibliography processing chain has changed from `biblatex + biber` to classic `BibTeX`.
 
