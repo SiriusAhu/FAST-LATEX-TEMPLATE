@@ -6,17 +6,16 @@
     "latex-workshop.latex.clean.fileTypes": [
         ".aux",
         ".bbl",
-        ".bcf",
         ".blg",
         ".fdb_latexmk",
         ".fls",
         ".lof",
         ".lot",
         ".out",
-        ".run.xml",
         ".synctex.gz",
         ".toc",
-        ".log"
+        ".log",
+        ".xdv"
     ],
 
     // VSCode 相关配置
@@ -30,25 +29,25 @@
     // 默认使用 Quick Build（快速编译，适合不需要引用的情况）
     "latex-workshop.latex.recipes": [
         {
-            "name": "Full Build (pdflatex → biber → pdflatex ×2)",
+            "name": "Full Build (xelatex → bibtex → xelatex ×2)",
             "tools": [
-                "pdflatex",
-                "biber",
-                "pdflatex",
-                "pdflatex"
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
             ]
         },
         {
-            "name": "Quick Build (pdflatex only)",
+            "name": "Quick Build (xelatex only)",
             "tools": [
-                "pdflatex"
+                "xelatex"
             ]
         }
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "pdflatex",
-            "command": "pdflatex",
+            "name": "xelatex",
+            "command": "xelatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -58,8 +57,8 @@
             ],
         },
         {
-            "name": "biber",
-            "command": "biber",
+            "name": "bibtex",
+            "command": "bibtex",
             "args": [
                 "%DOCFILE%"
             ],

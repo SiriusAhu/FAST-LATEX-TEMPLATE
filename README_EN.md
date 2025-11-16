@@ -36,6 +36,9 @@ This is a dedicated branch of the FAST LaTeX template, adapted to the Final Year
 
 - FYP-specific settings can be found in `config/fyp_settings.tex`; that file includes detailed comments—please edit it as needed.
 
+## 🚨 BREAKING CHANGE 🚨
+This project's core compilation engine has switched from `pdfLaTeX` to `XeLaTeX`, and the bibliography processing chain has changed from `biblatex + biber` to classic `BibTeX`.
+
 # 💡 How to Clone
 If you want to clone this branch directly, besides cloning the main repository and switching branches, you can also use the following command:
 

@@ -36,6 +36,12 @@
 
 - 有关FYP Proposal的主要配置位于`config/fyp_settings.tex`文件中，内部有详细注释说明。请根据需要进行修改。
 
+
+## 🚨 BREAKING CHANGE 🚨
+该项目的核心编译引擎已从`pdfLaTeX`切换为`XeLaTeX`，参考文献处理链也从`biblatex + biber`切换为经典的`BibTeX`。
+
+详情请参阅[CHANGELOG.md](./CHANGELOG.md)。
+
 # 💡 How to Clone
 想要直接clone该分支，除了可以先clone主仓库再切换分支外，还可以直接使用下面的命令：
 

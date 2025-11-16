@@ -3,25 +3,68 @@
 % -------------------------------------------------------------------
 % This file centralises package loading so higher-level options can stay inside options.tex. Only adjust these settings when you need to add or remove functionality for the whole project.
 
-% Engine guard: FAST targets pdfLaTeX workflows (local + Overleaf).
+% Engine guard: FAST targets XeLaTeX workflows (local + Overleaf).
 \usepackage{ifxetex}
 \usepackage{ifluatex}
-\ifxetex
-  \PackageError{fast-template}{FAST targets pdfLaTeX only}{Switch your compiler to pdfLaTeX (pdflatex) when building this project.}
+\ifxetex\else
+  \PackageError{fast-template}{FAST targets XeLaTeX only}{Switch your compiler to XeLaTeX (xelatex) when building this project.}
 \fi
 \ifluatex
-  \PackageError{fast-template}{FAST targets pdfLaTeX only}{Switch your compiler to pdfLaTeX (pdflatex) when building this project.}
+  \PackageError{fast-template}{FAST targets XeLaTeX only}{Switch your compiler to XeLaTeX (xelatex) when building this project.}
 \fi
 
-% Encoding, fonts, and language handling tuned for pdfLaTeX.
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\ifTemplateChineseSupport
-  \usepackage{CJKutf8}
-\fi
+% Encoding, fonts, and language handling tuned for XeLaTeX.
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\usepackage{xeCJK}
+\xeCJKsetup{CJKmath=true}
+\newcommand{\TemplateSetupCJKFonts}{%
+  \IfFontExistsTF{Noto Serif CJK SC}{%
+    \setCJKmainfont{Noto Serif CJK SC}%
+  }{%
+    \IfFontExistsTF{Source Han Serif SC}{%
+      \setCJKmainfont{Source Han Serif SC}%
+    }{%
+      \IfFontExistsTF{Songti SC}{%
+        \setCJKmainfont{Songti SC}%
+      }{%
+        \IfFontExistsTF{STSong}{%
+          \setCJKmainfont{STSong}%
+        }{%
+          \setCJKmainfont{SimSun}%
+        }%
+      }%
+    }%
+  }%
+  \IfFontExistsTF{Noto Sans CJK SC}{%
+    \setCJKsansfont{Noto Sans CJK SC}%
+  }{%
+    \IfFontExistsTF{Source Han Sans SC}{%
+      \setCJKsansfont{Source Han Sans SC}%
+    }{%
+      \IfFontExistsTF{Microsoft YaHei}{%
+        \setCJKsansfont{Microsoft YaHei}%
+      }{%
+        \setCJKsansfont{SimHei}%
+      }%
+    }%
+  }%
+  \IfFontExistsTF{Noto Sans Mono CJK SC}{%
+    \setCJKmonofont{Noto Sans Mono CJK SC}%
+  }{%
+    \IfFontExistsTF{Sarasa Mono SC}{%
+      \setCJKmonofont{Sarasa Mono SC}%
+    }{%
+      \setCJKmonofont{SimSun}%
+    }%
+  }%
+}
+\TemplateSetupCJKFonts
 
 \usepackage[english]{babel}
-\usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{csquotes}
 
@@ -61,12 +104,4 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 
-% Bibliography
-\usepackage{biblatex}
-\addbibresource{bib/references.bib}
-
-% Activate Chinese typesetting for the entire document when running pdfLaTeX.
-\ifTemplateChineseSupport
-  \AtBeginDocument{\begin{CJK*}{UTF8}{gbsn}}
-  \AtEndDocument{\end{CJK*}}
-\fi
+% Bibliography handled through classic BibTeX, so no extra package wiring here.
