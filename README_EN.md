@@ -177,7 +177,7 @@ This project comes with a `.vscode/settings.json` configuration file. If you use
 > 
 > A: If you have your own configuration and don't want to use the one in the repository, you can choose to delete the `.vscode` folder or rename it (such as `.vscode_backup`). This way it won't override the default user configuration.
 
-### 1. Clone or Download This Project
+### A.1. Clone or Download This Project
 
 ```bash
 git clone https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE.git
@@ -186,7 +186,7 @@ cd FAST-LATEX-TEMPLATE
 
 Or download the ZIP package directly and extract it.
 
-### 2. Edit `meta.tex` and `options.tex`
+### A.2. Edit `meta.tex` and `options.tex`
 
 Modify according to your needs.
 - `meta.tex`: Fill in the meta information of the coursework, including but not limited to:
@@ -201,12 +201,11 @@ Modify according to your needs.
     - Theme color, code style, and other options
     - **Chinese support**: Enabled by default; tweak `\TemplateSetupCJKFonts` in `config/preamble.tex` if you want to force specific fonts
 
-### 3. Try Compiling
+### A.3. Try Compiling
 
 Try to see if compilation is successful: Are there any rendering errors? Is the meta information in the output PDF file consistent with what you filled in `meta.tex`?
 
-#### 3.1. Compile Using Command Line
-
+#### A.3.1. Compile Using Command Line
 Compilation chain: `XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX`.
 
 ```bash
@@ -216,7 +215,7 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-#### 3.2. Compile Using VSCode
+#### A.3.2. Compile Using VSCode
 
 Install the `LaTeX Workshop` extension, then use `VSCode` to open the project folder, click the `TeX` icon in the left extension bar, select `Full Build` under `Build LaTeX project` to compile.
 
@@ -232,6 +231,11 @@ You can download this project as a compressed package and then upload it to `Ove
 ![Github Download](./assets/readme/github_download_guide.jpg)
 
 ![Overleaf Upload](./assets/readme/overleaf_upload_guide.jpg)
+
+Enter the project, remember to switch the compiler to `XeLaTeX` in the `Overleaf` menu.
+
+![Switch to XeLaTeX - 1](./assets/readme/overleaf_switch2xelatex_1.png)
+![Switch to XeLaTeX - 1](./assets/readme/overleaf_switch2xelatex_2.png)
 
 ## Everything is Ready, Start Writing!
 

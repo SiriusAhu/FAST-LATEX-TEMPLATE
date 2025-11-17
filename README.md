@@ -178,7 +178,7 @@ bibtex --version   # 验证 BibTeX 成功安装
 > 
 > A: 如果你有自己的一套配置，不想用仓库中的配置，那么你可以选择删除`.vscode`文件夹，或者将其重命名为其他名字（如`.vscode_backup`）。这样它就不会覆盖默认的用户配置了。
 
-### 1. 克隆或下载该项目
+### A.1. 克A或下载该项目
 
 ```bash
 git clone https://github.com/SiriusAhu/FAST-LATEX-TEMPLATE.git
@@ -187,7 +187,7 @@ cd FAST-LATEX-TEMPLATE
 
 或者直接下载ZIP包并解压。
 
-### 2. 编辑`meta.tex`和`options.tex`
+### A.2. 编辑`meta.tex`和`options.tex`
 
 按照需求修改即可。
 - `meta.tex`：填写作业的元信息，包括但不限于：
@@ -205,11 +205,11 @@ cd FAST-LATEX-TEMPLATE
         - `ieee`（默认）
         - `apa7`（对应 biblatex 的 `apa` 样式）
 
-### 3. 尝试编译
+### A.3. 尝试编译
 
 试试看编译是否能成功：渲染是否报错？输出的PDF文件上的元信息是否与`meta.tex`中填写的一致？
 
-#### 3.1. 使用命令行编译
+#### A.3.1. 使用命令行编译
 
 编译链条：`XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX`。
 
@@ -220,7 +220,7 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-#### 3.2. 使用VSCode编译
+#### A.3.2. 使用VSCode编译
 
 安装`LaTeX Workshop`扩展，然后使用`VSCode`打开项目文件夹，点击左侧扩展栏中的`TeX`图标，选择`Build LaTeX project`下的`Full Build`进行编译。
 
@@ -236,6 +236,11 @@ xelatex main.tex
 ![Github Download](./assets/readme/github_download_guide.jpg)
 
 ![Overleaf Upload](./assets/readme/overleaf_upload_guide.jpg)
+
+进入项目后，记得在`Overleaf`的菜单中将编译器切换为`XeLaTeX`。
+
+![Switch to XeLaTeX - 1](./assets/readme/overleaf_switch2xelatex_1.png)
+![Switch to XeLaTeX - 1](./assets/readme/overleaf_switch2xelatex_2.png)
 
 ## 一切就绪，开始写作吧！
 
