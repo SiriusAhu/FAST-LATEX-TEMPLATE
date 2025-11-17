@@ -42,6 +42,11 @@
 
 详情请参阅[CHANGELOG.md](./CHANGELOG.md)。
 
+如果你使用的是`Overleaf`，进入项目后，记得在左侧菜单中将编译器切换为`XeLaTeX`。
+
+![Switch to XeLaTeX - 1](./assets/images/overleaf_switch2xelatex_1.png)
+![Switch to XeLaTeX - 1](./assets/images/overleaf_switch2xelatex_2.png)
+
 # 💡 How to Clone
 想要直接clone该分支，除了可以先clone主仓库再切换分支外，还可以直接使用下面的命令：
 

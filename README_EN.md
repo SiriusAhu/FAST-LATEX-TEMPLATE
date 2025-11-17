@@ -39,6 +39,14 @@ This is a dedicated branch of the FAST LaTeX template, adapted to the Final Year
 ## 🚨 BREAKING CHANGE 🚨
 This project's core compilation engine has switched from `pdfLaTeX` to `XeLaTeX`, and the bibliography processing chain has changed from `biblatex + biber` to classic `BibTeX`.
 
+For details, please refer to [CHANGELOG.md](./CHANGELOG.md).
+
+If you are using `Overleaf`, remember to switch the compiler to `XeLaTeX` in the left-side menu after importing the project.
+
+![Switch to XeLaTeX - 1](./assets/images/overleaf_switch2xelatex_1.png)
+![Switch to XeLaTeX - 1](./assets/images/overleaf_switch2xelatex_2.png)
+
+
 # 💡 How to Clone
 If you want to clone this branch directly, besides cloning the main repository and switching branches, you can also use the following command:
 
